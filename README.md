@@ -1,4 +1,4 @@
-# Proyecto 1
+# Proyecto 2
 
 
 Este proyecto se centra en el desarrollo de una aplicación web de gestión de una clínica; además, requiere utilizar módulos que permitan el manejo de pacientes,asignación y cancelación de citas. Utilizando React como framework principal. 
