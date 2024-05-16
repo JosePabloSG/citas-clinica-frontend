@@ -6,12 +6,18 @@ import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
 import AuthProvider from './auth/AuthProvider'
 import ProtectedRoute from './auth/ProtectedRoute'
+import SignupPage from './pages/SignupPage'
 
 const router = createBrowserRouter([
   {
     path: "/login",
     element: <LoginPage />
-  }, {
+  },
+  {
+    path: "/signup",
+    element: <SignupPage />
+  },
+  {
     path: "/",
     element: (
       <ProtectedRoute>
