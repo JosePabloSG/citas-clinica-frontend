@@ -1,4 +1,5 @@
 import Logout from "../components/Logout"
+import { CalendarForm } from "@/components/CalendarForm"
 
 const HomePage = () => {
 
@@ -8,6 +9,7 @@ const HomePage = () => {
     <>
       <Logout />
       <div>HomePage</div>
+      <CalendarForm />
     </>
   )
 }
