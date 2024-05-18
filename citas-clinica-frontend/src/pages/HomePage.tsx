@@ -7,7 +7,6 @@ const HomePage = () => {
   return (
     <>
       <Logout />
-      <div>HomePage</div>
     </>
   )
 }
