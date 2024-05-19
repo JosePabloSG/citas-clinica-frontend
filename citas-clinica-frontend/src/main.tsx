@@ -7,6 +7,9 @@ import HomePage from './pages/HomePage'
 import AuthProvider from './auth/AuthProvider'
 import ProtectedRoute from './auth/ProtectedRoute'
 import SignupPage from './pages/SignupPage'
+import AdminRoute from './auth/AdminRoute'
+import AdminPage from './pages/AdminPage'
+import { Toaster } from 'sonner'
 
 const router = createBrowserRouter([
   {
@@ -24,6 +27,14 @@ const router = createBrowserRouter([
         <HomePage />
       </ProtectedRoute>
     )
+  },
+  {
+    path: "/admin",
+    element: (
+      <AdminRoute>
+        <AdminPage />
+      </AdminRoute>
+    )
   }
 
 ])
@@ -31,6 +42,7 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <AuthProvider>
+      <Toaster richColors />
       <RouterProvider router={router} />
     </AuthProvider>
   </React.StrictMode>,
