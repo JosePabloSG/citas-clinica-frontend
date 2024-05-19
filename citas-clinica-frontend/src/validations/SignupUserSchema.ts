@@ -1,14 +1,13 @@
 import { z } from "zod";
 
 const SignupUserSchema = z.object({
-    name: z.string().min(3, {message: 'Username must be at least 3 characters'}),
-    email: z.string().min(1, {message: 'Email is required'}).email('Invalid email address'),
-    cellphone: z.string().min(10, {message: 'Cellphone must be at least 10 characters'}),
-    password: z.string().min(6, {message: 'Password must be at least 6 characters'}),
-    confirmPassword: z.string().min(6, {message: 'Password must be at least 6 characters'})
-  }).refine((data) => data.password === data.confirmPassword, {
-    path: ['confirmPassword'],
-    message: 'Passwords does not match'
+    Id: z.string(),
+    Name: z.string().min(3, {message: 'Name must be at least 3 characters'}),
+    Email: z.string().min(1, {message: 'Email is required'}).email('Invalid email address'),
+    CellPhone: z.string().min(8, {message: 'Cellphone must be at least 10 characters'}),
+    UserName: z.string().min(3, {message: 'Username must be at least 3 characters'}),
+    Password: z.string().min(6, {message: 'Password must be at least 6 characters'}),
+    clinicId:  z.string()
   })
 
 export default SignupUserSchema;

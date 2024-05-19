@@ -12,17 +12,16 @@ const LoginPage = () => {
                 <form onSubmit={onSubmit} className="space-y-6">
                     <h5 className="text-xl font-medium text-white dark:text-white text-center">Sign in to your account</h5>
                     <div>
-                        <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+                        <label htmlFor="UserName" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your username</label>
                         <input
-                            type="email"
-                            {...register('email')}
-                            name="email"
-                            id="email"
-                            className="border-[#211a6d]  text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark: bg-blue-950 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                            placeholder="name@gmail.com"
+                            type="text"
+                            {...register('UserName')}
+                            name="UserName"
+                            id="UserName"
+                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-blue-950 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                         />
-                        {errors.email && (
-                            <span className="text-red-500 text-xs mt-1">{errors.email.message}</span>
+                        {errors.UserName && (
+                            <span className="text-red-500 text-xs mt-1">{errors.UserName.message}</span>
                         )}
                     </div>
                     <div>

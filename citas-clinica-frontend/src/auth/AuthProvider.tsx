@@ -1,8 +1,8 @@
+import { Role } from '@/types/Role';
 import { createContext, PropsWithChildren, useContext, useState } from 'react';
 
-import { User } from '../types/User';
 
-const AuthContext = createContext<User | null>(null);
+const AuthContext = createContext<Role | null>(null);
 
 type AuthProviderProps = PropsWithChildren & {
     isSignedIn?: boolean;
@@ -12,8 +12,8 @@ export default function AuthProvider({
     children,
     isSignedIn,
 }: AuthProviderProps) {
-    // Aqui van los datos del usuario
-    const [user] = useState<User | null>(isSignedIn ? { id: 1, user: "admin", email: "test" } : null);
+    
+    const [user] = useState<Role | null>(isSignedIn ? { Role: "Admin" } : null);
 
     return <AuthContext.Provider value={user}>{children}</AuthContext.Provider>;
 }
