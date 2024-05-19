@@ -1,29 +1,29 @@
-import { Role } from '@/types/Role';
 import { createContext, PropsWithChildren, useContext, useState } from 'react';
 
+import { User } from '../types/User';
 
-const AuthContext = createContext<Role | null>(null);
+const AuthContext = createContext<User | null>(null);
 
 type AuthProviderProps = PropsWithChildren & {
-    isSignedIn?: boolean;
+  isSignedIn?: boolean;
 };
 
 export default function AuthProvider({
-    children,
-    isSignedIn,
+  children,
+  isSignedIn,
 }: AuthProviderProps) {
-    
-    const [user] = useState<Role | null>(isSignedIn ? { Role: "Admin" } : null);
+  // Uses `isSignedIn` prop to determine whether or not to render a user
+  const [user] = useState<User | null>(isSignedIn ? { id: 1 } : null);
 
-    return <AuthContext.Provider value={user}>{children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={user}>{children}</AuthContext.Provider>;
 }
 
 export const useAuth = () => {
-    const context = useContext(AuthContext);
+  const context = useContext(AuthContext);
 
-    if (context === undefined) {
-        throw new Error('useAuth must be used within an AuthProvider');
-    }
+  if (context === undefined) {
+    throw new Error('useAuth must be used within an AuthProvider');
+  }
 
-    return context;
+  return context;
 };

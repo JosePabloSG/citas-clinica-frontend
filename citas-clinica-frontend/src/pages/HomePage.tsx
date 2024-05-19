@@ -1,9 +1,12 @@
-import Logout from "../components/Logout"
+import { Navbar } from "@/components/component/navbar"
 
 const HomePage = () => {
   return (
     <>
-      <Logout />
+      <Navbar />
+      <main className=" min-h-screen bg-gray-400">
+        content
+      </main>
     </>
   )
 }
