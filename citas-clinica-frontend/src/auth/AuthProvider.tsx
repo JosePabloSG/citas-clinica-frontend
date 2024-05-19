@@ -5,25 +5,25 @@ import { User } from '../types/User';
 const AuthContext = createContext<User | null>(null);
 
 type AuthProviderProps = PropsWithChildren & {
-    isSignedIn?: boolean;
+  isSignedIn?: boolean;
 };
 
 export default function AuthProvider({
-    children,
-    isSignedIn,
+  children,
+  isSignedIn,
 }: AuthProviderProps) {
-    // Aqui van los datos del usuario
-    const [user] = useState<User | null>(isSignedIn ? { id: 1, user: "admin", email: "test" } : null);
+  // Uses `isSignedIn` prop to determine whether or not to render a user
+  const [user] = useState<User | null>(isSignedIn ? { id: 1 } : null);
 
-    return <AuthContext.Provider value={user}>{children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={user}>{children}</AuthContext.Provider>;
 }
 
 export const useAuth = () => {
-    const context = useContext(AuthContext);
+  const context = useContext(AuthContext);
 
-    if (context === undefined) {
-        throw new Error('useAuth must be used within an AuthProvider');
-    }
+  if (context === undefined) {
+    throw new Error('useAuth must be used within an AuthProvider');
+  }
 
-    return context;
+  return context;
 };

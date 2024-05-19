@@ -3,7 +3,7 @@ import SignupUserSchema from "../../validations/SignupUserSchema"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useNavigate } from "react-router-dom"
-import { User } from "../../types/User"
+import { UserSignup } from "../../types/UserSignup"
 import { createUser } from "../../services/Auth/PostUser"
 
 export const useSignup = () => {
@@ -16,9 +16,16 @@ export const useSignup = () => {
     const navigate = useNavigate()
 
     const onSubmit = handleSubmit(async (data) => {
-        const LoginData: User = JSON.parse(JSON.stringify(data))
+        const { Id, clinicId, ...rest } = data;
+        const SignupData: UserSignup = {
+            Id: Number(Id),
+            ClinicId: Number(clinicId),
+            ...JSON.parse(JSON.stringify(rest))
+        }
+
+        console.log(SignupData)
         try {
-            await createUser(LoginData) // ! Cambiar a endpoint de signup en el futuro
+            await createUser(SignupData)
             navigate('/')
         } catch (error) {
             console.error('Error creating product:', error)
