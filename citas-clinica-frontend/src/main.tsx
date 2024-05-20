@@ -10,6 +10,7 @@ import SignupPage from './pages/SignupPage'
 import AdminRoute from './auth/AdminRoute'
 import AdminPage from './pages/AdminPage'
 import { Toaster } from 'sonner'
+import NotFound from './pages/NotFound'
 
 const router = createBrowserRouter([
   {
@@ -35,8 +36,11 @@ const router = createBrowserRouter([
         <AdminPage />
       </AdminRoute>
     )
+  },
+  {
+    path: "*",
+    element: <NotFound />
   }
-
 ])
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

@@ -22,8 +22,7 @@ export const useSignup = () => {
             ClinicId: Number(clinicId),
             ...JSON.parse(JSON.stringify(rest))
         }
-
-        console.log(SignupData)
+        
         try {
             await createUser(SignupData)
             navigate('/')

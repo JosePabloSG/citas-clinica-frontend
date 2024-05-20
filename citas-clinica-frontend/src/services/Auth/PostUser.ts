@@ -45,10 +45,10 @@ export async function LoginUser(LoginData:UserLogin) {
         })
         if (!response.ok) throw new Error("Error to create User")
     } catch (error) {
-        console.log('Error ocurred while creating user', error)
+        console.log('Error ocurred while login user', error)
         throw error
     } finally {
-        console.log('User created successfully')
+        console.log('User login successfully')
     }
 
     try {

@@ -7,12 +7,14 @@ export const useGetToken = () => {
         Email: string;
         Name: string;
         Role: string;
+        Id : string;
       }
     
       const [tokenData, setTokenData] = useState<TokenData>({
         Email: "",
         Name: "",
-        Role: ""
+        Role: "",
+        Id: ""
       });
     
       useEffect(() => {
