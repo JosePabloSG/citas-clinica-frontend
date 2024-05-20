@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
 import { LoginUser } from "../../services/Auth/PostUser"
 import { UserLogin } from "@/types/UserLogin"
+import { useState } from "react"
 
 export const useLogin = () => {
     type FormFields = z.infer<typeof LoginUserSchema>
@@ -14,16 +15,20 @@ export const useLogin = () => {
     })
 
     const navigate = useNavigate()
+    const [loading, setLoading] = useState(false)
 
     const onSubmit = handleSubmit(async (data) => {
         const LoginData: UserLogin = JSON.parse(JSON.stringify(data))
+        setLoading(true)
         try {
             await LoginUser(LoginData)
             navigate('/')
         } catch (error) {
             console.error('Error creating product:', error)
+        } finally {
+            setLoading(false)
         }
     })
 
-    return { onSubmit, register, errors }
+    return { onSubmit, register, errors, loading}
 }
