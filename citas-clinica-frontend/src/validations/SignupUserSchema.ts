@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from "zod"
 
 const SignupUserSchema = z.object({
     Id: z.string(),
@@ -10,4 +10,4 @@ const SignupUserSchema = z.object({
     clinicId:  z.string()
   })
 
-export default SignupUserSchema;
+export default SignupUserSchema

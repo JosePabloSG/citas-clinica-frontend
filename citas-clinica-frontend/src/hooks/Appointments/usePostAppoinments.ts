@@ -1,14 +1,14 @@
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { useGetToken } from "../auth/useGetToken";
-import { Appointment } from "@/types/Appointments";
-import { createAppointment } from "@/services/Appointments/Appointments";
-import { toast } from "sonner";
+import { useState } from "react"
+import { useForm } from "react-hook-form"
+import { Appointment } from "@/types/Appointments"
+import { createAppointment } from "@/services/Appointments/Appointments"
+import { toast } from "sonner"
+import useGetToken from "../auth/useGetToken"
 
-export const usePostAppoinments = () => {
+ const usePostAppoinments = () => {
 
     const { register, handleSubmit } = useForm()
-    const [showModal, setShowModal] = useState(false);
+    const [showModal, setShowModal] = useState(false)
     const { tokenData } = useGetToken()
   
     interface Data {
@@ -29,7 +29,7 @@ export const usePostAppoinments = () => {
       productData.clinicBranchId = parseInt(data.clinicBranchId)
       productData.status = true
       productData.id = 0
-      return productData;
+      return productData
     }
   
     const OnSubmit = handleSubmit(async (data) => {
@@ -47,3 +47,5 @@ export const usePostAppoinments = () => {
 
     return {OnSubmit, register, showModal, setShowModal}
 }
+
+export default usePostAppoinments

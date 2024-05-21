@@ -7,3 +7,4 @@ export type UserSignup = {
     Password : string;
     clinicId : number;
   };
+  

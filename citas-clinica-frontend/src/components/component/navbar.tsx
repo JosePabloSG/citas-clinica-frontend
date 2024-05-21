@@ -3,14 +3,12 @@ import { Button } from "@/components/ui/button"
 import { DropdownMenuTrigger, DropdownMenuSeparator, DropdownMenuItem, DropdownMenuContent, DropdownMenu } from "@/components/ui/dropdown-menu"
 import { Link } from "react-router-dom"
 import Logout from "../Logout"
-import { useGetToken } from "@/hooks/auth/useGetToken"
-
-
+import useGetToken from "@/hooks/auth/useGetToken"
 
 export function Navbar() {
 
-  const { tokenData } = useGetToken();
-  
+  const { tokenData } = useGetToken()
+
   return (
     <header className="flex h-16 items-center justify-between bg-[#211a6d] px-4 md:px-6">
       <Link className="text-lg font-bold text-white" to={"/"}>

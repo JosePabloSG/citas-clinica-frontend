@@ -6,7 +6,8 @@ import { useNavigate } from "react-router-dom"
 import { UserSignup } from "../../types/UserSignup"
 import { createUser } from "../../services/Auth/PostUser"
 
-export const useSignup = () => {
+const useSignup = () => {
+
     type FormFields = z.infer<typeof SignupUserSchema>
 
     const { handleSubmit, register, formState: { errors } } = useForm<FormFields>({
@@ -16,7 +17,7 @@ export const useSignup = () => {
     const navigate = useNavigate()
 
     const onSubmit = handleSubmit(async (data) => {
-        const { Id, clinicId, ...rest } = data;
+        const { Id, clinicId, ...rest } = data
         const SignupData: UserSignup = {
             Id: Number(Id),
             ClinicId: Number(clinicId),
@@ -33,3 +34,5 @@ export const useSignup = () => {
 
     return { onSubmit, register, errors }
 }
+
+export default useSignup

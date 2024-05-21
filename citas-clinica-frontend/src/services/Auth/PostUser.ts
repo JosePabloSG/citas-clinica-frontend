@@ -1,7 +1,6 @@
 import { UserLogin } from "@/types/UserLogin"
 import { UserSignup } from "@/types/UserSignup"
 
-
 export async function createUser(SignupUserData:UserSignup) {
 
     let response
@@ -62,5 +61,3 @@ export async function LoginUser(LoginData:UserLogin) {
         throw error
     }
 }
-
-

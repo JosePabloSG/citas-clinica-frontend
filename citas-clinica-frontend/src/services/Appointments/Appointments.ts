@@ -1,6 +1,7 @@
-import { Appointment } from "@/types/Appointments";
+import { Appointment } from "@/types/Appointments"
 
 export async function createAppointment(appointmentData: Appointment, tokenData: string) {
+
     let response
     try {
         response = await fetch('http://localhost:5030/api/Appointment/register',
@@ -28,3 +29,33 @@ export async function createAppointment(appointmentData: Appointment, tokenData:
         throw error
     }
   }
+
+  export async function getAppointmentByUser(userId:string, token: string | null) {
+    let response
+    try {
+      response = await fetch(`http://localhost:5030/api/Appointment/user/${userId}`,
+        {
+          method: "GET",
+          headers: {
+             "Content-Type": "application/json",
+             "Authorization": `Bearer ${token}`
+           },
+        }
+      )
+      if (!response.ok) throw new Error("Error to get appointment by user")
+    } catch (error) {
+      console.error("Error occurred while fetching appointment : ", error)
+      throw error
+    } finally {
+      console.log("Finished fetching appointment")
+    }
+
+    try {
+      const responseData: Appointment[] = await response.json()
+      return responseData
+    } catch (error) {
+      console.error("Error occurred while parsing response: ", error)
+      throw error
+    }
+  }
+  

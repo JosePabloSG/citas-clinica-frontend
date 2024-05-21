@@ -7,4 +7,3 @@ export type Appointment = {
     clinicBranchId: number;
     appointmentTypeId: number;
 }
-

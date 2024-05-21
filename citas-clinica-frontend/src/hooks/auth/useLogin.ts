@@ -7,7 +7,8 @@ import { LoginUser } from "../../services/Auth/PostUser"
 import { UserLogin } from "@/types/UserLogin"
 import { useState } from "react"
 
-export const useLogin = () => {
+const useLogin = () => {
+
     type FormFields = z.infer<typeof LoginUserSchema>
 
     const { handleSubmit, register, formState: { errors } } = useForm<FormFields>({
@@ -32,3 +33,5 @@ export const useLogin = () => {
 
     return { onSubmit, register, errors, loading}
 }
+
+export default useLogin

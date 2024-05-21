@@ -1,5 +1,5 @@
+import useSignup from "@/hooks/auth/useSignup"
 import { Link } from "react-router-dom"
-import { useSignup } from "../hooks/auth/useSignup"
 
 const SignupPage = () => {
 
