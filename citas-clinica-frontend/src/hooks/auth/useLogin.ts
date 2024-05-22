@@ -3,7 +3,7 @@ import LoginUserSchema from "../../validations/LoginUserSchema"
 import { z } from "zod"
 import { useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
-import { LoginUser } from "../../services/Auth/PostUser"
+import { LoginUser } from "../../services/Auth/User"
 import { UserLogin } from "@/types/UserLogin"
 import { useState } from "react"
 

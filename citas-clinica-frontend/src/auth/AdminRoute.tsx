@@ -1,7 +1,7 @@
-import { useNavigate } from 'react-router-dom';
-import { toast } from 'sonner';
-import { useEffect } from 'react';
-import { jwtDecode } from 'jwt-decode';
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'sonner'
+import { useEffect } from 'react'
+import { jwtDecode } from 'jwt-decode'
 
 
 
@@ -14,22 +14,22 @@ function AdminRoute({ children }: AdminRouteProps) {
         Role: string;
     }
 
-    const token = localStorage.getItem('token');
-    let Role: Role | null = null;
-    
+    const token = localStorage.getItem('token')
+    let Role: Role | null = null
+
     if (token) {
-        Role = jwtDecode(token);
+        Role = jwtDecode(token)
     }
-    
-    const navigate = useNavigate();
+
+    const navigate = useNavigate()
     useEffect(() => {
         if (!Role || Role.Role !== 'ADMIN') {
-            navigate('/', { replace: true });
-            toast.error('You are not authorized to access this page');
+            navigate('/', { replace: true })
+            toast.error('You are not authorized to access this page')
         }
-    }, [Role, navigate]);
+    }, [Role, navigate])
 
-    return children;
+    return children
 }
 
-export default AdminRoute;
+export default AdminRoute

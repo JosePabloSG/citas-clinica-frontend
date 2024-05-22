@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useNavigate } from "react-router-dom"
 import { UserSignup } from "../../types/UserSignup"
-import { createUser } from "../../services/Auth/PostUser"
+import { createUser } from "../../services/Auth/User"
 import { useEffect } from "react"
 
 const useSignup = () => {
