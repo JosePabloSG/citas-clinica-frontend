@@ -64,11 +64,11 @@ Después de ejecutar los tests, es posible que se hayan creado datos de prueba e
 ```sql
 -- Eliminar citas de prueba
 DELETE FROM dbo.appointments
-WHERE userId = 123456789;
+WHERE userId = 1234567890;
 
 -- Eliminar usuarios de prueba
 DELETE FROM dbo.users
-WHERE Id = 123456789;
+WHERE Id = 1234567890;
 ```
 ## Volver a ejecutar los tests
 Si necesitas volver a ejecutar los tests después de limpiar los datos de prueba, simplemente repite el paso 3 de la sección "Ejecutar los tests".
