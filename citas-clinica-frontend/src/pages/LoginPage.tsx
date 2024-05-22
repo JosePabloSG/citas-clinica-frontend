@@ -13,6 +13,7 @@ const LoginPage = () => {
                     <div>
                         <label htmlFor="UserName" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your username</label>
                         <input
+                            data-cy="UserName"
                             type="text"
                             {...register('UserName')}
                             name="UserName"
@@ -26,6 +27,7 @@ const LoginPage = () => {
                     <div>
                         <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
                         <input
+                            data-cy="password"
                             type="password"
                             {...register('password')}
                             name="password"
@@ -36,7 +38,9 @@ const LoginPage = () => {
                             <span className="text-red-500 text-xs mt-1">{errors.password.message}</span>
                         )}
                     </div>
-                    <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sign in to account.</button>
+                    <button
+                        data-cy="submit"
+                        type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sign in to account.</button>
                     <div className="flex items-start mb-5">
                         <label htmlFor="terms" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Not registered? <Link to={"/signup"} className="text-blue-600 hover:underline dark:text-blue-500">Create an account.</Link></label>
                     </div>

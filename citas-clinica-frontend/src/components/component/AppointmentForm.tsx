@@ -10,6 +10,7 @@ export function AppointmentForm() {
   return (
     <>
       <button
+        data-cy="schedule"
         className="m-4 text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         type="button"
         onClick={() => setShowModal(true)}
@@ -28,6 +29,7 @@ export function AppointmentForm() {
                     Appointment Type
                   </label>
                   <select
+                    data-cy="appointmentTypeId"
                     id="appointmentTypeId"
                     {...register("appointmentTypeId")}
                     required
@@ -46,6 +48,7 @@ export function AppointmentForm() {
                     Clinic Branch
                   </label>
                   <select
+                    data-cy="clinicBranchId"
                     id="clinicBranchId"
                     {...register("clinicBranchId")}
                     required
@@ -60,12 +63,14 @@ export function AppointmentForm() {
                   <div className="space-y-2">
                     <Label htmlFor="date">Appointment Date</Label>
                     <Input
+                      data-cy="date"
                       {...register("date")}
                       id="date" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-blue-950 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" type="date" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="time">Appointment Time</Label>
                     <Input
+                      data-cy="time"
                       {...register("time")}
                       id="time" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-blue-950 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" type="time" />
                   </div>
@@ -81,6 +86,7 @@ export function AppointmentForm() {
                     </button>
                   </Link>
                   <button
+                    data-cy="submit"
                     type="submit"
                     className="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
                     Save
