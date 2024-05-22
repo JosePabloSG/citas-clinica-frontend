@@ -14,6 +14,9 @@ export function Navbar() {
       <Link className="text-lg font-bold text-white" to={"/"}>
         Greys Clinic
       </Link>
+      <Link to={"/admin"}>
+        Admin
+      </Link>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button className="rounded-full" size="icon" variant="ghost">

@@ -58,4 +58,32 @@ export async function createAppointment(appointmentData: Appointment, tokenData:
       throw error
     }
   }
-  
+
+   export async function getAllAppointments(token: string | null) {
+    let response
+    try {
+      response = await fetch(`http://localhost:5030/api/Appointment`,
+        {
+          method: "GET",
+          headers: {
+             "Content-Type": "application/json",
+             "Authorization": `Bearer ${token}`
+           },
+        }
+      )
+      if (!response.ok) throw new Error("Error to get appointments")
+    } catch (error) {
+      console.error("Error occurred while fetching appointments : ", error)
+      throw error
+    } finally {
+      console.log("Finished fetching appointments")
+    }
+
+    try {
+      const responseData: Appointment[] = await response.json()
+      return responseData
+    } catch (error) {
+      console.error("Error occurred while parsing response: ", error)
+      throw error
+    }
+  }

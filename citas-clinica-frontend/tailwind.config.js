@@ -4,8 +4,8 @@ export const content = [
   './components/**/*.{ts,tsx}',
   './app/**/*.{ts,tsx}',
   './src/**/*.{ts,tsx}',
-];
-export const prefix = "";
+]
+export const prefix = ""
 export const theme = {
   container: {
     center: true,
@@ -70,6 +70,6 @@ export const theme = {
       "accordion-up": "accordion-up 0.2s ease-out",
     },
   },
-};
+}
 // eslint-disable-next-line no-undef
-export const plugins = [require("tailwindcss-animate")];
+export const plugins = [require("tailwindcss-animate")]

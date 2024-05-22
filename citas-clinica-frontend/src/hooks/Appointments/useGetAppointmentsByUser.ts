@@ -6,7 +6,7 @@ import AppointmentsContext from "@/context/AppointmentsContext"
 
 const useGetAppointmentsByUser = () => {
 
-    const [filteredProducts, setFilteredProducts] = useState<Appointment[]>([])
+    const [filteredAppointments, setFilteredAppointments] = useState<Appointment[]>([])
     const [loading, setLoading] = useState(false)
     const {newAppointmentCreated} = useContext(AppointmentsContext)
 
@@ -20,8 +20,8 @@ const useGetAppointmentsByUser = () => {
             return
           }
           try {
-            const productsResult = await getAppointmentByUser(userId, localStorage.getItem('token') as string)
-            setFilteredProducts(productsResult)
+            const appointmentsResult = await getAppointmentByUser(userId, localStorage.getItem('token') as string)
+            setFilteredAppointments(appointmentsResult)
 
             setLoading(true)
           } catch (error) {
@@ -31,7 +31,7 @@ const useGetAppointmentsByUser = () => {
       getAppointments()
     }, [userId, newAppointmentCreated])
   
-    return { filteredProducts, loading }
+    return { filteredAppointments, loading }
 }
 
 export default useGetAppointmentsByUser
