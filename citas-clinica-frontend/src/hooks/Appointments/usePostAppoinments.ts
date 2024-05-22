@@ -1,15 +1,17 @@
-import { useState } from "react"
-import { useForm } from "react-hook-form"
+import { useContext, useState } from "react"
+import {  useForm } from "react-hook-form"
 import { Appointment } from "@/types/Appointments"
 import { createAppointment } from "@/services/Appointments/Appointments"
 import { toast } from "sonner"
 import useGetToken from "../auth/useGetToken"
+import AppointmentsContext from "@/context/AppointmentsContext"
 
  const usePostAppoinments = () => {
 
     const { register, handleSubmit } = useForm()
     const [showModal, setShowModal] = useState(false)
     const { tokenData } = useGetToken()
+    const {newAppointmentCreated,setNewAppointmentCreated } = useContext(AppointmentsContext)
   
     interface Data {
       time: string;
@@ -37,6 +39,7 @@ import useGetToken from "../auth/useGetToken"
   
       try {
         await createAppointment(productData, localStorage.getItem('token') as string)
+        setNewAppointmentCreated(!newAppointmentCreated)
         toast.success('Appointment scheduled successfully')
         setShowModal(false)
       } catch (error) {
@@ -45,7 +48,7 @@ import useGetToken from "../auth/useGetToken"
       }
     })
 
-    return {OnSubmit, register, showModal, setShowModal}
+    return {OnSubmit, register, showModal, setShowModal, newAppointmentCreated, setNewAppointmentCreated}
 }
 
 export default usePostAppoinments

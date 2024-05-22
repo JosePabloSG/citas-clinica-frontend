@@ -7,7 +7,7 @@ const SignupUserSchema = z.object({
     CellPhone: z.string().min(8, {message: 'Cellphone must be at least 10 characters'}),
     UserName: z.string().min(3, {message: 'Username must be at least 3 characters'}),
     Password: z.string().min(6, {message: 'Password must be at least 6 characters'}),
-    clinicId:  z.string()
+    clinicId: z.string()
   })
 
 export default SignupUserSchema
