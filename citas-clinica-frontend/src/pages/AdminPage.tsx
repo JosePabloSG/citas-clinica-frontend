@@ -1,4 +1,4 @@
-import AppointmentsAdmin from "@/components/AppointmentsAdmin"
+import TableAdmin from "@/components/TableAdmin"
 import { Navbar } from "@/components/component/navbar"
 import AppointmentsProvider from "@/context/AppointmentsProvider"
 
@@ -7,8 +7,10 @@ const AdminPage = () => {
   return (
     <>
       <AppointmentsProvider>
-        <Navbar />
-        <AppointmentsAdmin />
+        <main className="min-h-screen bg-gray-400">
+          <Navbar />
+          <TableAdmin />
+        </main>
       </AppointmentsProvider>
     </>
   )

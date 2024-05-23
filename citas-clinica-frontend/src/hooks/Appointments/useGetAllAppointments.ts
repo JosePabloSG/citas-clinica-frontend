@@ -16,7 +16,10 @@ const useGetAllAppointments = () => {
           }
           try {
             const AppointmentsResult = await getAllAppointments(localStorage.getItem('token') as string)
-            setAppointmentsResults(AppointmentsResult)
+            const now = new Date()
+            const today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).toISOString().split('T')[0]
+            const todayAppointments = AppointmentsResult.filter(appointment => appointment.date === today)
+            setAppointmentsResults(todayAppointments)
             setLoading(true)
           } catch (error) {
             console.error("Error to get Appointments ", error)
