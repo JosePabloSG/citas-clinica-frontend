@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom'
-import { toast } from 'sonner'
 import { useEffect } from 'react'
 import { jwtDecode } from 'jwt-decode'
 
@@ -24,8 +23,7 @@ function AdminRoute({ children }: AdminRouteProps) {
     const navigate = useNavigate()
     useEffect(() => {
         if (!Role || Role.Role !== 'ADMIN') {
-            navigate('/', { replace: true })
-            toast.error('You are not authorized to access this page')
+            navigate('/unauthorized')
         }
     }, [Role, navigate])
 
