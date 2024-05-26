@@ -47,3 +47,28 @@ deberán existir previamente en la base de datos para su correcto funcionamiento
 ▪ El registro será solo para los pacientes, el usuario ADMIN se puede crear
 previamente en la base de datos, es decir cualquier usuario que utilice la página de
 Registro será automáticamente del Rol USER  
+
+# Pruebas de extremo a extremo con Cypress
+
+## Ejecutar los tests
+
+1. Asegúrate de tener todos los requisitos previos instalados (Node.js, Cypress, etc.).
+2. Abre una terminal y navega hasta el directorio raíz del proyecto.
+3. Ejecuta el siguiente comando para correr todos los tests de Cypress: ``` npx cypress run ```
+4. Espera a que finalice la ejecución de todos los tests. Si todos los tests pasan, verás un resumen exitoso en la terminal.
+
+## Limpiar datos de prueba
+
+Después de ejecutar los tests, es posible que se hayan creado datos de prueba en la base de datos. Para eliminar estos datos y dejar la base de datos limpia para la próxima ejecución, puedes ejecutar las siguientes consultas SQL:
+
+```sql
+-- Eliminar citas de prueba
+DELETE FROM dbo.appointments
+WHERE userId = 1234567890;
+
+-- Eliminar usuarios de prueba
+DELETE FROM dbo.users
+WHERE Id = 1234567890;
+```
+## Volver a ejecutar los tests
+Si necesitas volver a ejecutar los tests después de limpiar los datos de prueba, simplemente repite el paso 3 de la sección "Ejecutar los tests".
