@@ -29,7 +29,7 @@ function AdminRoute({ children }: AdminRouteProps) {
         }
     }, [Role, navigate])
 
-    return children
+    return token && Role && Role.Role === 'ADMIN' ? <>{children}</> : null
 }
 
 export default AdminRoute
