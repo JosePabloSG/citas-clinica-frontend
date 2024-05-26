@@ -11,6 +11,7 @@ import AdminRoute from './auth/AdminRoute'
 import AdminPage from './pages/AdminPage'
 import { Toaster } from 'sonner'
 import NotFound from './pages/NotFound'
+import UnauthorizedPage from './pages/UnauthorizedPage'
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <SignupPage />
+  },
+  {
+    path: "/unauthorized",
+    element: <UnauthorizedPage />
   },
   {
     path: "/",
