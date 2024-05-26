@@ -5,42 +5,46 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useNavigate } from "react-router-dom"
 import { UserSignup } from "../../types/UserSignup"
 import { createUser } from "../../services/Auth/User"
-import { useEffect } from "react"
+import { useDebounce } from "../useDebounce"
+import { useEffect, useState } from "react"
 
 
 const useSignup = () => {
 
+    const [navigateDebounced, setNavigateDebounced] = useState(false)
+    const debouncedValue = useDebounce(navigateDebounced, 500)
+    const navigate = useNavigate()
+
     type FormFields = z.infer<typeof SignupUserSchema>
 
-    const { handleSubmit, register, formState: { errors },setValue } = useForm<FormFields>({
+    const { handleSubmit, register, formState: { errors } } = useForm<FormFields>({
         resolver: zodResolver(SignupUserSchema)
     })
 
-    const navigate = useNavigate()
+    const onSubmit = handleSubmit(async (data) => {
+
+        const { Id, ...rest } = data
+
+        const SignupData: UserSignup = {
+            Id: Number(Id),
+            ClinicId: 1,
+            ...JSON.parse(JSON.stringify(rest))
+        }
+
+
+        try {
+            await createUser(SignupData)
+            setNavigateDebounced(true)
+        } catch (error) {
+            console.error('Error creating product:', error)
+        }
+    })
 
     useEffect(() => {
-        setValue('clinicId', '1')
-    } , [setValue])
-
-
-const onSubmit = handleSubmit(async (data) => {
-
-    const { Id, clinicId, ...rest } = data
-        
-    const SignupData: UserSignup = {
-        Id: Number(Id),
-        ClinicId: Number(clinicId),
-        ...JSON.parse(JSON.stringify(rest))
-    }
-
-    
-    try {
-        await createUser(SignupData)
-        navigate('/')
-    } catch (error) {
-        console.error('Error creating product:', error)
-    }
-}) 
+        if (debouncedValue) {
+            navigate('/login')
+        }
+    }, [debouncedValue, navigate])
 
     return { onSubmit, register, errors }
 }

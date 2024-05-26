@@ -6,32 +6,32 @@ import AppointmentsContext from "@/context/AppointmentsContext"
 
 const useGetAppointmentsByUser = () => {
 
-    const [filteredAppointments, setFilteredAppointments] = useState<Appointment[]>([])
-    const [loading, setLoading] = useState(false)
-    const {newAppointmentCreated} = useContext(AppointmentsContext)
+  const [filteredAppointments, setFilteredAppointments] = useState<Appointment[]>([])
+  const [loading, setLoading] = useState(false)
+  const { newAppointmentCreated } = useContext(AppointmentsContext)
 
-    const { tokenData }= useGetToken()
-    const userId = tokenData?.Id
+  const { tokenData } = useGetToken()
+  const userId = tokenData?.Id
 
-    useEffect(() => {
-      setLoading(false)
-      async function getAppointments() {
-        if (!userId || !localStorage.getItem('token')) {
-            return
-          }
-          try {
-            const appointmentsResult = await getAppointmentByUser(userId, localStorage.getItem('token') as string)
-            setFilteredAppointments(appointmentsResult)
-
-            setLoading(true)
-          } catch (error) {
-            console.error("Error to get Appointments ", error)
-          }
+  useEffect(() => {
+    setLoading(false)
+    async function getAppointments() {
+      if (!userId || !localStorage.getItem('token')) {
+        return
       }
-      getAppointments()
-    }, [userId, newAppointmentCreated])
-  
-    return { filteredAppointments, loading }
+      try {
+        const appointmentsResult = await getAppointmentByUser(userId, localStorage.getItem('token') as string)
+        setFilteredAppointments(appointmentsResult)
+
+        setLoading(true)
+      } catch (error) {
+        console.error("Error to get Appointments ", error)
+      }
+    }
+    getAppointments()
+  }, [userId, newAppointmentCreated])
+
+  return { filteredAppointments, loading }
 }
 
 export default useGetAppointmentsByUser

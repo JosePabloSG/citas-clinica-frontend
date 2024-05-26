@@ -31,7 +31,7 @@ const useLogin = () => {
         }
     })
 
-    return { onSubmit, register, errors, loading}
+    return { onSubmit, register, errors, loading }
 }
 
 export default useLogin
