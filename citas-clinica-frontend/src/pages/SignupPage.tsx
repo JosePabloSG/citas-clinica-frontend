@@ -107,7 +107,6 @@ const SignupPage = () => {
                         <div className="flex items-start mb-5">
                             <label htmlFor="terms" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Already have an account? <Link to={"/login"} className="text-blue-600 hover:underline dark:text-blue-500">Login here.</Link></label>
                         </div>
-
                     </form>
                 </div>
             </div>

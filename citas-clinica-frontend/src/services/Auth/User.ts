@@ -17,8 +17,6 @@ export async function createUser(SignupUserData:UserSignup) {
     } catch (error) {
         console.log('Error ocurred while creating user', error)
         throw error
-    } finally {
-        console.log('User created successfully')
     }
 
     try {
@@ -46,8 +44,6 @@ export async function LoginUser(LoginData:UserLogin) {
     } catch (error) {
         console.log('Error ocurred while login user', error)
         throw error
-    } finally {
-        console.log('User login successfully')
     }
 
     try {

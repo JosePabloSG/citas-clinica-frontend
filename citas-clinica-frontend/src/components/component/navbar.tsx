@@ -1,5 +1,3 @@
-import { AvatarImage, Avatar } from "@/components/ui/avatar"
-import { Button } from "@/components/ui/button"
 import { DropdownMenuTrigger, DropdownMenuSeparator, DropdownMenuItem, DropdownMenuContent, DropdownMenu } from "@/components/ui/dropdown-menu"
 import { Link } from "react-router-dom"
 import Logout from "../Logout"
@@ -15,22 +13,28 @@ export function Navbar() {
         Greys Clinic
       </Link>
       <div className="flex items-center my-5">
-        <Link className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" to={"/admin"}>
-          maintenance
-        </Link>
+        {tokenData.Role === 'ADMIN' && (
+          <Link to={"/admin"}>
+            <button type="button" className="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">Maintenance</button>
+          </Link>
+        )}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button className="rounded-full" size="icon" variant="ghost">
-              <Avatar className="h-8 w-8">
-                <AvatarImage alt="Avatar" src="/user.svg" />
-              </Avatar>
-            </Button>
+            <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-user">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+              <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+            </svg>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-75 space-y-2 p-2">
             <div className="space-y-1">
               <div className="text-sm font-medium  text-stone-900">{tokenData.Email}</div>
               <div className="text-sm text-stone-900">{tokenData.Name}</div>
-              <div className="text-sm text-stone-900">{tokenData.Role}</div>
+              {
+                tokenData.Role === 'ADMIN' && (
+                  <div className="text-sm text-stone-900">Admin</div>
+                )
+              }
             </div>
             <DropdownMenuSeparator />
             <DropdownMenuItem>

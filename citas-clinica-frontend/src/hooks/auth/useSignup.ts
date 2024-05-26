@@ -7,11 +7,12 @@ import { UserSignup } from "../../types/UserSignup"
 import { createUser } from "../../services/Auth/User"
 import { useEffect } from "react"
 
+
 const useSignup = () => {
 
     type FormFields = z.infer<typeof SignupUserSchema>
 
-    const { handleSubmit, register,setValue, formState: { errors } } = useForm<FormFields>({
+    const { handleSubmit, register, formState: { errors },setValue } = useForm<FormFields>({
         resolver: zodResolver(SignupUserSchema)
     })
 
@@ -21,23 +22,25 @@ const useSignup = () => {
         setValue('clinicId', '1')
     } , [setValue])
 
-    const onSubmit = handleSubmit(async (data) => {
-       
-        const { Id, clinicId, ...rest } = data
+
+const onSubmit = handleSubmit(async (data) => {
+
+    const { Id, clinicId, ...rest } = data
         
-        const SignupData: UserSignup = {
-            Id: Number(Id),
-            ClinicId: Number(clinicId),
-            ...JSON.parse(JSON.stringify(rest))
-        }
-        
-        try {
-            await createUser(SignupData)
-            navigate('/')
-        } catch (error) {
-            console.error('Error creating product:', error)
-        }
-    })
+    const SignupData: UserSignup = {
+        Id: Number(Id),
+        ClinicId: Number(clinicId),
+        ...JSON.parse(JSON.stringify(rest))
+    }
+
+    
+    try {
+        await createUser(SignupData)
+        navigate('/')
+    } catch (error) {
+        console.error('Error creating product:', error)
+    }
+}) 
 
     return { onSubmit, register, errors }
 }

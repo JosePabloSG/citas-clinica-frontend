@@ -17,8 +17,6 @@ export async function createAppointment(appointmentData: Appointment, tokenData:
     } catch (error) {
         console.log('Error ocurred while creating appointment', error)
         throw error
-    } finally {
-        console.log('Appointment created successfully')
     }
 
     try {
@@ -46,10 +44,7 @@ export async function createAppointment(appointmentData: Appointment, tokenData:
     } catch (error) {
       console.error("Error occurred while fetching appointment : ", error)
       throw error
-    } finally {
-      console.log("Finished fetching appointment")
     }
-
     try {
       const responseData: Appointment[] = await response.json()
       return responseData
@@ -75,10 +70,7 @@ export async function createAppointment(appointmentData: Appointment, tokenData:
     } catch (error) {
       console.error("Error occurred while fetching appointments : ", error)
       throw error
-    } finally {
-      console.log("Finished fetching appointments")
     }
-
     try {
       const responseData: Appointment[] = await response.json()
       return responseData
