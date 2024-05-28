@@ -1,23 +1,25 @@
 import { UserLogin } from "@/types/UserLogin"
 import { UserSignup } from "@/types/UserSignup"
 
-export async function createUser(SignupUserData:UserSignup) {
+export async function createUser(SignupUserData: UserSignup) {
 
     let response
     try {
-        response = await fetch('http://localhost:5030/api/user/register',
-        {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(SignupUserData)
-        })
-        if (!response.ok) throw new Error("Error to create User")
+        response = await fetch(`${import.meta.env.VITE_API_URL}/api/user/register`,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(SignupUserData)
+            })
+
     } catch (error) {
         console.log('Error ocurred while creating user', error)
         throw error
     }
+
+    if (!response.ok) throw new Error(`Error to create User: received ${response.status} from server`)
 
     try {
         const responseData = await response.json()
@@ -28,23 +30,25 @@ export async function createUser(SignupUserData:UserSignup) {
     }
 }
 
-export async function LoginUser(LoginData:UserLogin) {
+export async function LoginUser(LoginData: UserLogin) {
 
     let response
     try {
-        response = await fetch('http://localhost:5030/api/User/login',
-        {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(LoginData)
-        })
-        if (!response.ok) throw new Error("Error to create User")
+        response = await fetch(`${import.meta.env.VITE_API_URL}/api/User/login`,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(LoginData)
+            })
+
     } catch (error) {
         console.log('Error ocurred while login user', error)
         throw error
     }
+
+    if (!response.ok) throw new Error(`Error to login User: received ${response.status} from server`)
 
     try {
         const responseData = await response.json()
