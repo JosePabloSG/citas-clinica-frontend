@@ -7,7 +7,7 @@ const HomePage = () => {
 
   return (
     <>
-      <main className="min-h-screen bg-gray-400 ">
+      <main className="min-h-screen bg-gray-500 ">
         <Navbar />
         <AppointmentsProvider>
           <AppointmentForm />
