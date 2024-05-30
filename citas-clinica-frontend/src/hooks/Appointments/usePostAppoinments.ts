@@ -12,6 +12,7 @@ const usePostAppoinments = () => {
   const [showModal, setShowModal] = useState(false)
   const { tokenData } = useGetToken()
   const { newAppointmentCreated, setNewAppointmentCreated } = useContext(AppointmentsContext)
+  
 
   interface Data {
     time: string;
@@ -22,6 +23,12 @@ const usePostAppoinments = () => {
   interface TokenData {
     Id: string;
   }
+
+  interface CustomError {
+    message: string;
+  }
+
+
 
   function formatedData(data: Data, tokenData: TokenData) {
     data.time += ":00"
@@ -36,6 +43,7 @@ const usePostAppoinments = () => {
 
   const OnSubmit = handleSubmit(async (data) => {
     const productData: Appointment = formatedData(data as Data, tokenData)
+    
 
     try {
       await createAppointment(productData, localStorage.getItem('token') as string)
@@ -43,7 +51,7 @@ const usePostAppoinments = () => {
       toast.success('Appointment scheduled successfully')
       setShowModal(false)
     } catch (error) {
-      toast.error('Error scheduling appointment')
+      toast.error((error as CustomError).message)
       setShowModal(false)
     }
   })

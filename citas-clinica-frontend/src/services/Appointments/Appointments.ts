@@ -20,7 +20,16 @@ export async function createAppointment(appointmentData: Appointment, tokenData:
     throw error
   }
 
-  if (!response.ok) throw new Error(`Error creating appointment: received ${response.status} from server`)
+  if (!response.ok) {
+    try {
+      const errorResponse = await response.json()
+      console.error(`Error to get appointment by user: received ${response.status} from server. Message: ${errorResponse.message}`)
+      throw new Error(errorResponse.message)
+    } catch (error) {
+      console.error("Error occurred while parsing error response: ", error)
+      throw error
+    }
+  }
 
   try {
     const responseData: Appointment = await response.json()
