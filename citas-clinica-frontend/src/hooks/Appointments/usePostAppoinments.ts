@@ -2,7 +2,7 @@ import { useContext, useState } from "react"
 import { useForm } from "react-hook-form"
 import { Appointment } from "@/types/Appointments"
 import { createAppointment } from "@/services/Appointments/Appointments"
-import { toast } from "sonner"
+import { toast } from "react-hot-toast"
 import useGetToken from "../auth/useGetToken"
 import AppointmentsContext from "@/context/AppointmentsContext"
 

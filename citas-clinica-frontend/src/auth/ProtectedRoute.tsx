@@ -1,6 +1,6 @@
 import { PropsWithChildren, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { toast } from 'sonner'
+import { toast } from 'react-hot-toast'
 
 type ProtectedRouteProps = PropsWithChildren;
 

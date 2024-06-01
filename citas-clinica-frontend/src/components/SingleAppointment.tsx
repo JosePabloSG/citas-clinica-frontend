@@ -21,7 +21,7 @@ const SingleAppointment = ({
     useEffect(() => {
         setAppointment(appointment)
         setAppointmentId(appointment.id)
-    }, [appointment, setAppointment])
+    }, [appointment, setAppointment, setAppointmentId])
     
 
     return (
