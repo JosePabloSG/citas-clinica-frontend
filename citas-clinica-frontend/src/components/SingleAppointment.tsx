@@ -4,6 +4,7 @@ import { Input } from "./ui/input"
 import AppointmentsContext from "@/context/AppointmentsContext"
 import useAppointment from "@/hooks/Appointments/useAppointment"
 import { useContext, useEffect } from "react"
+import useCancelAppoinments from "@/hooks/Appointments/useCancellAppointment"
 
 
 const SingleAppointment = ({
@@ -12,12 +13,14 @@ const SingleAppointment = ({
     appointment: Appointment
 }) => {
 
-    const { setAppointment } = useContext(AppointmentsContext)
-    
+    const { setAppointment,setAppointmentId } = useContext(AppointmentsContext)
     const {isEditing,OnSubmit,register,handleDoubleClick,setIsEditing,appointmentTypes,clinicBranches } = useAppointment()
+    
+    const { HandlecancellAppointment } = useCancelAppoinments()
 
     useEffect(() => {
         setAppointment(appointment)
+        setAppointmentId(appointment.id)
     }, [appointment, setAppointment])
     
 
@@ -94,8 +97,9 @@ const SingleAppointment = ({
                                     </button>
                                     <button
                                         type="button"
+                                        onClick={HandlecancellAppointment}
                                         className="text-xs bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-semibold rounded-full px-4 py-2 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 text-white">
-                                        Cancelled
+                                        Cancel
                                     </button>
                                     <button
                                         data-cy="submit"
