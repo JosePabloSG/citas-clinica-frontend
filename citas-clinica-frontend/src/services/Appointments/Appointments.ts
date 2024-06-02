@@ -15,14 +15,14 @@ export async function createAppointment(appointmentData: Appointment, tokenData:
         body: JSON.stringify(appointmentData)
       })
   } catch (error) {
-    console.log('Error ocurred while creating appointment', error)
+    console.log('Error ocurred while fetching Appointments  '   , error)
     throw error
   }
 
   if (!response.ok) {
     try {
       const errorResponse = await response.json()
-      console.error(`Error to get appointment by user: received ${response.status} from server. Message: ${errorResponse.message}`)
+      console.error(`Error to create appointment by user: received ${response.status} from server. Message: ${errorResponse.message}`)
       throw new Error(errorResponse.message)
     } catch (error) {
       console.error("Error occurred while parsing error response: ", error)
@@ -82,7 +82,7 @@ export async function getAppointmentByUser(userId: string, token: string | null)
       }
     )
   } catch (error) {
-    console.error("Error occurred while fetching appointment : ", error)
+    console.error("Error occurred while fetching appointments : ", error)
     throw error
   }
 
@@ -114,7 +114,7 @@ export async function getAppointmentById(AppointmentId:number,token: string | nu
     throw error
   }
 
-  if (!response.ok) throw new Error(`Error to get appointment by user: received ${response.status} from server`)
+  if (!response.ok) throw new Error(`Error to get appointment by Id: received ${response.status} from server`)
 
   try {
     const responseData: Appointment = await response.json()
@@ -142,20 +142,11 @@ export async function updateAppointment(AppointmentId:number,appointmentData: Ap
         body: JSON.stringify(appointmentData)
       })
   } catch (error) {
-    console.log('Error ocurred while creating appointment', error)
+    console.log('Error ocurred while fetching appointment', error)
     throw error
   }
 
-  if (!response.ok) {
-    try {
-      const errorResponse = await response.json()
-      console.error(`Error to get appointment by user: received ${response.status} from server. Message: ${errorResponse.message}`)
-      throw new Error(errorResponse.message)
-    } catch (error) {
-      console.error("Error occurred while parsing error response: ", error)
-      throw error
-    }
-  }
+  if (!response.ok) throw new Error(`Error to update appointment: received ${response.status} from server`)
 
   try {
     const responseData: Appointment = await response.json()
@@ -182,14 +173,14 @@ export async function deleteAppointmente(AppointmentId: number, tokenData: strin
         },
       })
   } catch (error) {
-    console.log('Error ocurred while creating appointment', error)
+    console.log('Error ocurred while fetching appointment', error)
     throw error
   }
 
   if (!response.ok) {
     try {
       const errorResponse = await response.json()
-      console.error(`Error to get appointment by user: received ${response.status} from server. Message: ${errorResponse.message}`)
+      console.error(`Error to delete appointment: received ${response.status} from server. Message: ${errorResponse.message}`)
       throw new Error(errorResponse.message)
     } catch (error) {
       console.error("Error occurred while parsing error response: ", error)
@@ -220,14 +211,14 @@ export async function cancellAppointment(AppointmentId: number, tokenData:string
         },
       })
   } catch (error) {
-    console.log('Error ocurred while creating appointment', error)
+    console.log('Error ocurred while fetching appointment', error)
     throw error
   }
 
   if (!response.ok) {
     try {
       const errorResponse = await response.json()
-      console.error(`Error to get appointment by user: received ${response.status} from server. Message: ${errorResponse.message}`)
+      console.error(`Error to cancel appointment: received ${response.status} from server. Message: ${errorResponse.message}`)
       throw new Error(errorResponse.message)
     } catch (error) {
       console.error("Error occurred while parsing error response: ", error)

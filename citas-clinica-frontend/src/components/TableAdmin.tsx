@@ -4,6 +4,7 @@ import { Appointment } from "@/types/Appointments"
 import { Loader } from "lucide-react"
 
 const TableAdmin = () => {
+  
   const { appointmentsResults,loading } = useGetAllAppointments()
 
   return (

@@ -3,10 +3,12 @@ import { cancellAppointment } from "@/services/Appointments/Appointments"
 import { useContext } from "react"
 import toast from "react-hot-toast"
 
+interface CustomError {
+    message: string;
+}
+
 const CancellAppointmentButton = ({ id, setIsEditing }: { id: number, setIsEditing: (isEditing: boolean) => void }) => {
-    interface CustomError {
-        message: string;
-    }
+
     const { setNewAppointmentCreated, newAppointmentCreated } = useContext(AppointmentsContext)
 
     const HandlecancellAppointment = async () => {

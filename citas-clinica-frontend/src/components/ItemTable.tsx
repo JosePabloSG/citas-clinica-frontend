@@ -8,18 +8,16 @@ interface CustomError {
     message: string;
 }
 
-const ItemTable = ({
-    appointment
-}: {
-    appointment: Appointment
-}) => {
+const ItemTable = ({ appointment }: { appointment: Appointment }) => {
 
     const { setNewAppointmentCreated, newAppointmentCreated } = useContext(AppointmentsContext)
 
-
     const handleDelete = async () => {
         try {
-            const messageResults = await deleteAppointmente(appointment.id, localStorage.getItem("token") as string)
+            const messageResults = await deleteAppointmente(
+                appointment.id,
+                localStorage.getItem("token") as string
+            )
             setNewAppointmentCreated(!newAppointmentCreated)
             toast.success(messageResults)
         } catch (error) {
@@ -29,32 +27,28 @@ const ItemTable = ({
 
     return (
         <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 rounded m-4">
-            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+            <th
+                scope="row"
+                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+            >
                 {appointment.id}
             </th>
+            <td className="px-6 py-4">{appointment.date}</td>
+            <td className="px-6 py-4">{appointment.time}</td>
             <td className="px-6 py-4">
-                {appointment.date}
+                {appointment.status ? "Pending" : "Cancelled"}
             </td>
+            <td className="px-6 py-4">{appointment.userId}</td>
+            <td className="px-6 py-4">{appointment.user.name}</td>
+            <td className="px-6 py-4">{appointment.clinicBranch.name}</td>
+            <td className="px-6 py-4">{appointment.appointmentType.name}</td>
             <td className="px-6 py-4">
-                {appointment.time}
-            </td>
-            <td className="px-6 py-4">
-                {appointment.status ? 'Pending' : 'Cancelled'}
-            </td>
-            <td className="px-6 py-4">
-                {appointment.userId}
-            </td>
-            <td className="px-6 py-4">
-                {appointment.user.name}
-            </td>
-            <td className="px-6 py-4">
-                {appointment.clinicBranch.name}
-            </td>
-            <td className="px-6 py-4">
-                {appointment.appointmentType.name}
-            </td>
-            <td className="px-6 py-4">
-                <button onClick={handleDelete} className="font-medium text-red-500 dark:text-red-500 hover:underline">Delete</button>
+                <button
+                    onClick={handleDelete}
+                    className="font-medium text-red-500 dark:text-red-500 hover:underline"
+                >
+                    Delete
+                </button>
             </td>
         </tr>
     )

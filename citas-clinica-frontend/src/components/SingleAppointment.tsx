@@ -2,18 +2,16 @@ import { Appointment } from "@/types/Appointments"
 import { Label } from "@radix-ui/react-label"
 import { Input } from "./ui/input"
 import CancellAppointmentButton from "./CancellAppointmentButton"
-import { useForm } from "react-hook-form"
 import { useState } from "react"
 import DeleteAppointmentButton from "./DeleteAppointmentButton"
+import usePutAppointment from "@/hooks/Appointments/usePutAppointment"
+
 
 
 const SingleAppointment = ({ appointment }: { appointment: Appointment }) => {
 
-    const { register, handleSubmit } = useForm()
-
     const [isEditing, setIsEditing] = useState(false)
-
-    const OnSubmit = handleSubmit(() => { })
+    const {OnSubmit,register} = usePutAppointment(setIsEditing,appointment)
 
     return (
         <div onDoubleClick={() => setIsEditing(true)}>
@@ -117,7 +115,7 @@ const SingleAppointment = ({ appointment }: { appointment: Appointment }) => {
                         <section className="flex gap-3 mt-2 justify-end">
                             <>
                                 <CancellAppointmentButton id={appointment.id} setIsEditing={setIsEditing} />
-                                <DeleteAppointmentButton id={appointment.id} setIsEditing={setIsEditing}  />
+                                <DeleteAppointmentButton id={appointment.id} setIsEditing={setIsEditing} />
                                 <button
                                     data-cy="submit"
                                     type="submit"
@@ -131,6 +129,12 @@ const SingleAppointment = ({ appointment }: { appointment: Appointment }) => {
                 </div>
             ) : (
                 <div className="w-full max-w-sm p-4 bg-gray-400 borderborder-white rounded-lg shadow sm:p-6 md:p-8 hover:scale-105 transition-transform duration-300 ease-in-out cursor-pointer">
+                    <div className="col-span-2 sm:col-span-1">
+                        <h4 className="block mb-2 text-sm font-medium text-gray-900">
+                            Status
+                        </h4>
+                        <p className=" text-gray-700">{appointment.status ? 'Pending' : 'Cancelled'}</p>
+                    </div>
                     <div className="col-span-2 sm:col-span-1">
                         <h4 className="block mb-2 text-sm font-medium text-gray-900">
                             Appointment Type

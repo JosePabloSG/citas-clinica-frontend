@@ -6,6 +6,22 @@ import { toast } from "react-hot-toast"
 import useGetToken from "../auth/useGetToken"
 import AppointmentsContext from "@/context/AppointmentsContext"
 
+
+interface Data {
+  time: string;
+  appointmentTypeId: string;
+  clinicBranchId: string;
+}
+
+interface TokenData {
+  Id: string;
+}
+
+interface CustomError {
+  message: string;
+}
+
+
 const usePostAppoinments = () => {
 
   const { register, handleSubmit } = useForm()
@@ -13,23 +29,6 @@ const usePostAppoinments = () => {
   const { tokenData } = useGetToken()
   const { newAppointmentCreated, setNewAppointmentCreated } = useContext(AppointmentsContext)
   
-
-  interface Data {
-    time: string;
-    appointmentTypeId: string;
-    clinicBranchId: string;
-  }
-
-  interface TokenData {
-    Id: string;
-  }
-
-  interface CustomError {
-    message: string;
-  }
-
-
-
   function formatedData(data: Data, tokenData: TokenData) {
     data.time += ":00"
     const productData = JSON.parse(JSON.stringify(data))
@@ -43,8 +42,6 @@ const usePostAppoinments = () => {
 
   const OnSubmit = handleSubmit(async (data) => {
     const productData: Appointment = formatedData(data as Data, tokenData)
-    
-
     try {
       await createAppointment(productData, localStorage.getItem('token') as string)
       setNewAppointmentCreated(!newAppointmentCreated)
