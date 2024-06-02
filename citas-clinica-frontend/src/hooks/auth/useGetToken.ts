@@ -5,6 +5,7 @@ interface TokenData {
   Email: string;
   Name: string;
   Role: string;
+  Phone: number;
   Id: string;
 }
 
@@ -14,6 +15,7 @@ const useGetToken = () => {
     Email: "",
     Name: "",
     Role: "",
+    Phone: 0,
     Id: ""
   })
 

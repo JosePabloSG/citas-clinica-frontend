@@ -1,5 +1,8 @@
 import { createContext, PropsWithChildren, useState } from 'react'
-import { User } from '../types/User'
+
+type User = {
+  id: number;
+}
 
 export const AuthContext = createContext<User | null>(null)
 

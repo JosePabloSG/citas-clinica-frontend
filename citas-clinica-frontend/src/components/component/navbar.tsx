@@ -30,13 +30,24 @@ export function Navbar() {
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-75 space-y-2 p-2">
             <div className="space-y-1">
-              <div className="text-sm font-medium  text-stone-900">{tokenData.Email}</div>
-              <div className="text-sm text-stone-900">{tokenData.Name}</div>
-              {
-                tokenData.Role === 'ADMIN' && (
-                  <div className="text-sm text-stone-900">Admin</div>
-                )
-              }
+              <div className="col-span-2 sm:col-span-1">
+                <h4 className="block mb-2 text-sm font-medium text-gray-900">
+                  Name
+                </h4>
+                <div className="text-sm font-medium  text-stone-700">{tokenData.Name}</div>
+              </div>
+              <div className="col-span-2 sm:col-span-1">
+                <h4 className="block mb-2 text-sm font-medium text-gray-900">
+                  Email
+                </h4>
+                <div className="text-sm font-medium  text-stone-700">{tokenData.Email}</div>
+              </div>
+              <div className="col-span-2 sm:col-span-1">
+                <h4 className="block mb-2 text-sm font-medium text-gray-900">
+                  Phone
+                </h4>
+                <div className="text-sm font-medium  text-stone-700">{tokenData.Phone}</div>
+              </div>
             </div>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
