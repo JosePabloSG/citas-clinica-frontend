@@ -3,11 +3,11 @@ import { cancellAppointment } from "@/services/Appointments/Appointments"
 import { useContext } from "react"
 import toast from "react-hot-toast"
 
-const CancellAppointmentButton = ({ id }: { id: number }) => {
+const CancellAppointmentButton = ({ id, setIsEditing }: { id: number, setIsEditing: (isEditing: boolean) => void }) => {
     interface CustomError {
         message: string;
     }
-    const { setNewAppointmentCreated,setIsEditing,newAppointmentCreated } = useContext(AppointmentsContext)
+    const { setNewAppointmentCreated, newAppointmentCreated } = useContext(AppointmentsContext)
 
     const HandlecancellAppointment = async () => {
         try {
@@ -25,7 +25,7 @@ const CancellAppointmentButton = ({ id }: { id: number }) => {
         <button
             type="button"
             onClick={HandlecancellAppointment}
-            className="text-xs bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-semibold rounded-full px-4 py-2 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 text-white"
+            className="text-xs rounded-full px-4 py-2 text-center me-2 mb-2 font-semibold text-gray-900"
         >
             Cancel
         </button>

@@ -11,8 +11,6 @@ const useGetAppointmentsByUser = () => {
   const [loading, setLoading] = useState(false)
   const { newAppointmentCreated } = useContext(AppointmentsContext)
 
-  console.log(newAppointmentCreated)
- 
 
   const { tokenData } = useGetToken()
   const userId = tokenData?.Id

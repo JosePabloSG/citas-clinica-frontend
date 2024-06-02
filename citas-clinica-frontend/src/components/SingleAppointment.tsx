@@ -3,20 +3,35 @@ import { Label } from "@radix-ui/react-label"
 import { Input } from "./ui/input"
 import CancellAppointmentButton from "./CancellAppointmentButton"
 import { useForm } from "react-hook-form"
-import { useContext } from "react"
-import AppointmentsContext from "@/context/AppointmentsContext"
+import { useState } from "react"
+import DeleteAppointmentButton from "./DeleteAppointmentButton"
+
 
 const SingleAppointment = ({ appointment }: { appointment: Appointment }) => {
 
     const { register, handleSubmit } = useForm()
-    const { isEditing, setIsEditing } = useContext(AppointmentsContext)
 
-    const OnSubmit = handleSubmit(() => {})
+    const [isEditing, setIsEditing] = useState(false)
+
+    const OnSubmit = handleSubmit(() => { })
 
     return (
         <div onDoubleClick={() => setIsEditing(true)}>
             {isEditing ? (
                 <div className="w-full max-w-sm p-4 bg-gray-400 borderborder-white rounded-lg shadow sm:p-6 md:p-8 hover:scale-105 transition-transform duration-300 ease-in-out">
+                    <div className=" flex justify-end">
+                        <button
+                            type="button"
+                            onClick={() => setIsEditing(false)}
+                            className="text-xs rounded-full px-4 py-2 text-center me-2 mb-2 font-semibold text-gray-900 "
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-x">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M18 6l-12 12" />
+                                <path d="M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
                     <form onSubmit={OnSubmit} className="space-y-6">
                         <div className="col-span-2 sm:col-span-1">
                             <label
@@ -99,26 +114,18 @@ const SingleAppointment = ({ appointment }: { appointment: Appointment }) => {
                                 />
                             </div>
                         </div>
-                        <section className="flex gap-1 mt-2 justify-end">
-                            {isEditing && (
-                                <>
-                                    <button
-                                        type="button"
-                                        onClick={() => setIsEditing(false)}
-                                        className="text-xs rounded-full px-4 py-2 text-center me-2 mb-2 font-semibold text-gray-900 "
-                                    >
-                                        Close
-                                    </button>
-                                    <CancellAppointmentButton id={appointment.id} />
-                                    <button
-                                        data-cy="submit"
-                                        type="submit"
-                                        className="text-xs bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300  font-semibold rounded-full px-4 py-2 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 text-white"
-                                    >
-                                        Save
-                                    </button>
-                                </>
-                            )}
+                        <section className="flex gap-3 mt-2 justify-end">
+                            <>
+                                <CancellAppointmentButton id={appointment.id} setIsEditing={setIsEditing} />
+                                <DeleteAppointmentButton id={appointment.id} setIsEditing={setIsEditing}  />
+                                <button
+                                    data-cy="submit"
+                                    type="submit"
+                                    className="text-xs bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300  font-semibold rounded-full px-4 py-2 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 text-white"
+                                >
+                                    Save
+                                </button>
+                            </>
                         </section>
                     </form>
                 </div>
@@ -140,7 +147,7 @@ const SingleAppointment = ({ appointment }: { appointment: Appointment }) => {
                         <h4 className="block mb-2 text-sm font-medium text-gray-900">
                             Appointment Date
                         </h4>
-                        <p className=" text-gray-700">{appointment.date}</p>
+                        <p className=" text-gray-700">  {new Date(appointment.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}    </p>
                     </div>
                     <div className="col-span-2 sm:col-span-1">
                         <h4 className="block mb-2 text-sm font-medium text-gray-900">
