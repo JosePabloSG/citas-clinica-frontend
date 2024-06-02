@@ -3,10 +3,6 @@ import { deleteAppointmente } from "@/services/Appointments/Appointments"
 import { useContext } from "react"
 import toast from "react-hot-toast"
 
-interface CustomError {
-    message: string;
-}
-
 const DeleteAppointmentButton = ({ id, setIsEditing }: { id: number, setIsEditing: (isEditing: boolean) => void }) => {
 
     const { setNewAppointmentCreated, newAppointmentCreated } = useContext(AppointmentsContext)
@@ -18,8 +14,7 @@ const DeleteAppointmentButton = ({ id, setIsEditing }: { id: number, setIsEditin
             toast.success(messageResults)
             setIsEditing(false)
         } catch (error) {
-            toast.error((error as CustomError).message)
-            setIsEditing(false)
+            toast.error("You don't have permission to delete this appointment")
         }
     }
     return (
