@@ -6,8 +6,8 @@ type AppointmentsContextType = {
     setNewAppointmentCreated: (newAppointmentCreated: boolean) => void;
     appointment: Appointment;
     setAppointment: (appointment: Appointment) => void;
-    AppointmentId: number
-    setAppointmentId: (AppointmentId: number) => void;
+    isEditing: boolean;
+    setIsEditing: (isEditing: boolean) => void;
   };
 
   const AppointmentsContext = React.createContext<AppointmentsContextType>({
@@ -15,8 +15,8 @@ type AppointmentsContextType = {
     setNewAppointmentCreated: () => {},
     appointment: {} as Appointment,
     setAppointment: () => {},
-    AppointmentId: 0,
-    setAppointmentId: () =>  {}
+    isEditing: false,
+    setIsEditing: () => {}
   })
   
   export default AppointmentsContext

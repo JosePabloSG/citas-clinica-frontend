@@ -10,6 +10,8 @@ const useGetAppointmentsByUser = () => {
   const [filteredAppointments, setFilteredAppointments] = useState<Appointment[]>([])
   const [loading, setLoading] = useState(false)
   const { newAppointmentCreated } = useContext(AppointmentsContext)
+
+  console.log(newAppointmentCreated)
  
 
   const { tokenData } = useGetToken()

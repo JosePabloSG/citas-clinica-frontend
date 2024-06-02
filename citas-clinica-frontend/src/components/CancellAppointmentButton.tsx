@@ -7,12 +7,13 @@ const CancellAppointmentButton = ({ id }: { id: number }) => {
     interface CustomError {
         message: string;
     }
-    const { setNewAppointmentCreated } = useContext(AppointmentsContext)
+    const { setNewAppointmentCreated,setIsEditing,newAppointmentCreated } = useContext(AppointmentsContext)
 
     const HandlecancellAppointment = async () => {
         try {
             const messageResults = await cancellAppointment(id, localStorage.getItem("token") as string)
-            setNewAppointmentCreated(true)
+            setNewAppointmentCreated(!newAppointmentCreated)
+            setIsEditing(false)
             toast.success(messageResults)
         } catch (error) {
             toast.error((error as CustomError).message)

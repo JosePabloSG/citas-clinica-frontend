@@ -5,15 +5,16 @@ import { Appointment } from "@/types/Appointments"
 const AppointmentsProvider = ({ children }: { children: ReactNode }) => {
     const [newAppointmentCreated, setNewAppointmentCreated] = useState(false)
     const [appointment, setAppointment] = useState<Appointment>({} as Appointment)
-    const [AppointmentId, setAppointmentId] = useState(0)  
+    const [isEditing, setIsEditing] = useState(false)
+
     return (
         <AppointmentsContext.Provider value={{
             newAppointmentCreated,
             setNewAppointmentCreated,
             appointment,
             setAppointment,
-            AppointmentId,
-            setAppointmentId
+            isEditing,
+            setIsEditing
         }}>
             {children}
         </AppointmentsContext.Provider>

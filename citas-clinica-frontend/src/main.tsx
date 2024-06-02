@@ -12,6 +12,7 @@ import AdminPage from './pages/AdminPage'
 import { Toaster } from 'react-hot-toast'
 import NotFound from './pages/NotFound'
 import UnauthorizedPage from './pages/UnauthorizedPage'
+import AppointmentsProvider from './context/AppointmentsProvider'
 
 const router = createBrowserRouter([
   {
@@ -51,8 +52,10 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <AuthProvider>
+      <AppointmentsProvider>  
       <Toaster position="top-right" reverseOrder={false} />
       <RouterProvider router={router} />
+      </AppointmentsProvider>
     </AuthProvider>
   </React.StrictMode>,
 )
