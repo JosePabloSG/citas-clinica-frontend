@@ -125,7 +125,6 @@ export async function cancellAppointment(AppointmentId: number, tokenData:string
 
   try {
     const responseData: { message: string } = await response.json()
-    console.log(responseData)
     return responseData.message
   } catch (error) {
     console.log('Error ocurred while parsing response', error)
@@ -201,8 +200,8 @@ export async function deleteAppointmente(AppointmentId: number, tokenData: strin
   }
 
   try {
-    const responseData: string = await response.json()
-    return responseData
+    const responseData: { message: string } = await response.json()
+    return responseData.message
   } catch (error) {
     console.log('Error ocurred while parsing response', error)
     throw error

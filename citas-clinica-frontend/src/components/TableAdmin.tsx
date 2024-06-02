@@ -26,6 +26,9 @@ const TableAdmin = () => {
                   Status
                 </th>
                 <th scope="col" className="px-6 py-3">
+                  Id
+                </th>
+                <th scope="col" className="px-6 py-3">
                   Client
                 </th>
                 <th scope="col" className="px-6 py-3">

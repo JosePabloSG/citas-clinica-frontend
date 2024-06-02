@@ -1,11 +1,13 @@
+import AppointmentsContext from "@/context/AppointmentsContext"
 import { getAllAppointments } from "@/services/Appointments/Appointments"
 import { Appointment } from "@/types/Appointments"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 
 
 const useGetAllAppointments = () => {
 
   const [appointmentsResults, setAppointmentsResults] = useState<Appointment[]>([])
+  const {newAppointmentCreated} = useContext(AppointmentsContext)
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
@@ -26,7 +28,7 @@ const useGetAllAppointments = () => {
       }
     }
     getAppointments()
-  }, [])
+  }, [newAppointmentCreated])
 
   return { appointmentsResults, loading }
 }

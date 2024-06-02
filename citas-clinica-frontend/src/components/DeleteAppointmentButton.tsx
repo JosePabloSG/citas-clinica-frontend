@@ -1,16 +1,25 @@
+import AppointmentsContext from "@/context/AppointmentsContext"
 import { deleteAppointmente } from "@/services/Appointments/Appointments"
+import { useContext } from "react"
 import toast from "react-hot-toast"
 
+interface CustomError {
+    message: string;
+}
+
 const DeleteAppointmentButton = ({ id, setIsEditing }: { id: number, setIsEditing: (isEditing: boolean) => void }) => {
+
+    const { setNewAppointmentCreated, newAppointmentCreated } = useContext(AppointmentsContext)
 
     const HandleDeleteAppointment = async () => {
         try {
             const messageResults = await deleteAppointmente(id, localStorage.getItem("token") as string)
+            setNewAppointmentCreated(!newAppointmentCreated)
             toast.success(messageResults)
             setIsEditing(false)
         } catch (error) {
-            toast.error((error as Error).message)
-            console.error("Error deleting product:", error)
+            toast.error((error as CustomError).message)
+            setIsEditing(false)
         }
     }
     return (
