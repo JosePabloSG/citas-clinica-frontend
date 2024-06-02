@@ -1,7 +1,5 @@
 import { Appointment } from "@/types/Appointments"
 
-
-
 export async function createAppointment(appointmentData: Appointment, tokenData: string) {
 
   let response
@@ -127,6 +125,7 @@ export async function cancellAppointment(AppointmentId: number, tokenData:string
 
   try {
     const responseData: { message: string } = await response.json()
+    console.log(responseData)
     return responseData.message
   } catch (error) {
     console.log('Error ocurred while parsing response', error)
@@ -206,6 +205,34 @@ export async function deleteAppointmente(AppointmentId: number, tokenData: strin
     return responseData
   } catch (error) {
     console.log('Error ocurred while parsing response', error)
+    throw error
+  }
+}
+
+export async function getAppointmentById(AppointmentId:number,token: string | null) {
+  let response
+  try {
+    response = await fetch(`${import.meta.env.VITE_API_URL}/api/Appointment/id/${AppointmentId}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        },
+      }
+    )
+  } catch (error) {
+    console.error("Error occurred while fetching appointment : ", error)
+    throw error
+  }
+
+  if (!response.ok) throw new Error(`Error to get appointment by user: received ${response.status} from server`)
+
+  try {
+    const responseData: Appointment = await response.json()
+    return responseData
+  } catch (error) {
+    console.error("Error occurred while parsing response: ", error)
     throw error
   }
 }

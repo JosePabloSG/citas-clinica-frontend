@@ -6,4 +6,12 @@ export type Appointment = {
     userId: number;
     clinicBranchId: number;
     appointmentTypeId: number;
-}
+    clinicBranch: {
+        id: number;
+        name: string;
+    };
+    appointmentType: {
+        id: number;
+        name: string;
+    };
+};
