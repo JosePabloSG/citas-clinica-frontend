@@ -16,7 +16,7 @@ const SingleAppointment = ({ appointment }: { appointment: Appointment }) => {
     return (
         <div onDoubleClick={() => setIsEditing(true)}>
             {isEditing ? (
-                <div className="w-full max-w-sm p-4 bg-gray-400 borderborder-white rounded-lg shadow sm:p-6 md:p-8 hover:scale-105 transition-transform duration-300 ease-in-out">
+                <div className="w-full max-w-sm p-4 bg-gray-400 borderborder-white rounded-lg shadow sm:p-6 md:p-8">
                      <div className=" flex justify-end">
                         <button
                             type="button"
