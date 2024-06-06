@@ -7,8 +7,8 @@ const SignupPage = () => {
 
     return (
         <>
-            <div className="flex min-h-screen items-center justify-center bg-gray-400">
-                <div className="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-blue-900 dark:border-gray-700">
+            <div className="flex min-h-screen items-center justify-center bg-gray-200">
+                <div className="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-teal-900 dark:border-gray-700">
                     <form onSubmit={onSubmit} className="space-y-6">
                         <h5 className="text-xl font-medium text-gray-900 dark:text-white text-center">Create an account</h5>
                         <div className="flex gap-4  ">
@@ -20,7 +20,7 @@ const SignupPage = () => {
                                     {...register('Name')}
                                     name="Name"
                                     id="Name"
-                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-blue-950 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                    className="bg-gray-50 border border-gray-200 text-gray-200 text-sm rounded-lg focus:ring-gray-200 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-200 dark:white-gray-500 dark:placeholder-white-400 dark:text-grey-900"
                                     placeholder="John Doe"
                                 />
                                 {errors.Name && <p className="text-red-500 text-xs mt-1">{errors.Name.message}</p>}
@@ -33,7 +33,7 @@ const SignupPage = () => {
                                     {...register('UserName')}
                                     name="UserName"
                                     id="UserName"
-                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-blue-950 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                    className="bg-gray-50 border border-gray-200 text-gray-200 text-sm rounded-lg focus:ring-gray-200 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-200 dark:white-gray-500 dark:placeholder-white-400 dark:text-grey-900"
                                     placeholder="johndoe"
                                 />
                                 {errors.UserName && <p className="text-red-500 text-xs mt-1">{errors.UserName.message}</p>}
@@ -47,7 +47,7 @@ const SignupPage = () => {
                                 {...register('Id')}
                                 name="Id"
                                 id="Id"
-                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-blue-950 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                className="bg-gray-50 border border-gray-200 text-gray-200 text-sm rounded-lg focus:ring-gray-200 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-200 dark:white-gray-500 dark:placeholder-white-400 dark:text-grey-900"
                                 placeholder="1234567890"
                             />
                             {errors.Id && <p className="text-red-500 text-xs mt-1">{errors.Id.message}</p>}
@@ -60,7 +60,7 @@ const SignupPage = () => {
                                 {...register('Email')}
                                 name="Email"
                                 id="Email"
-                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-blue-950 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                className="bg-gray-50 border border-gray-200 text-gray-200 text-sm rounded-lg focus:ring-gray-200 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-200 dark:white-gray-500 dark:placeholder-white-400 dark:text-grey-900"
                                 placeholder="name@gmail.com"
                             />
                             {errors.Email && <p className="text-red-500 text-xs mt-1">{errors.Email.message}</p>}
@@ -73,7 +73,7 @@ const SignupPage = () => {
                                 {...register('CellPhone')}
                                 name="CellPhone"
                                 id="CellPhone"
-                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-blue-950 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                className="bg-gray-50 border border-gray-200 text-gray-200 text-sm rounded-lg focus:ring-gray-200 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-200 dark:white-gray-500 dark:placeholder-white-400 dark:text-grey-900"
                                 placeholder="1234567890"
                             />
                             {errors.CellPhone && <p className="text-red-500 text-xs mt-1">{errors.CellPhone.message}</p>}
@@ -86,13 +86,13 @@ const SignupPage = () => {
                                 {...register('Password')}
                                 name="Password"
                                 id="Password"
-                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-blue-950 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                className="bg-gray-50 border border-gray-200 text-gray-200 text-sm rounded-lg focus:ring-gray-200 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-200 dark:white-gray-500 dark:placeholder-white-400 dark:text-grey-900"
                             />
                             {errors.Password && <p className="text-red-500 text-xs mt-1">{errors.Password.message}</p>}
                         </div>
-                        <button data-cy="submit" type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create account</button>
+                        <button data-cy="submit" type="submit" className="text-gray bg-teal-700 hover:bg-teal-800 focus:outline-none focus:ring-4 focus:ring-teal-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-teal-500 dark:hover:bg-teal-600 dark:focus:ring-teal-800">Create account</button>
                         <div className="flex items-start mb-5">
-                            <label htmlFor="terms" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Already have an account? <Link to={"/login"} className="text-blue-600 hover:underline dark:text-blue-500">Login here.</Link></label>
+                            <label htmlFor="terms" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Already have an account? <Link to={"/login"} className="text-blue-600 hover:underline dark:text-teal-400">Login here.</Link></label>
                         </div>
                     </form>
                 </div>

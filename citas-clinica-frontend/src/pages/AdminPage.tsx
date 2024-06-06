@@ -4,7 +4,7 @@ const AdminPage = () => {
 
   return (
     <>
-        <main className="min-h-screen bg-gray-400">
+        <main className="min-h-screen bg-gray-200">
           <Navbar />
           <TableAdmin />
         </main>
