@@ -8,7 +8,10 @@ const LoginPage = () => {
     return (
         <div className="flex min-h-screen items-center justify-center bg-gray-200">
             <div className="w-full max-w-sm p-4 bg-white border border-teal-600 rounded-lg shadow sm:p-6 md:p-8 dark:bg-teal-900 teal-900">
-                <form onSubmit={onSubmit} className="space-y-6">
+            <div className="absolute -top-8 left-1/2 transform -translate-x-1/2">
+                    <img src="LogoImages\LogoLogin.jpeg" alt="Greys Clinic Logo" className="h-32 w-32 rounded-full border-4 border-white" />
+                </div>
+                <form onSubmit={onSubmit} className="space-y-2 mt-16">
                     <h5 className="text-xl font-medium text-white dark:text-white text-center">Sign in to your account</h5>
                     <div>
                         <label htmlFor="UserName" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
