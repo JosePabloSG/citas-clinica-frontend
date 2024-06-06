@@ -20,7 +20,7 @@ const SignupPage = () => {
                                     {...register('Name')}
                                     name="Name"
                                     id="Name"
-                                    className="bg-gray-50 border border-gray-200 text-gray-200 text-sm rounded-lg focus:ring-gray-200 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-200 dark:white-gray-500 dark:placeholder-white-400 dark:text-grey-900"
+                                    className="bg-gray-50 border border-gray-200 text-slate-800 text-sm rounded-lg focus:ring-gray-200 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-200 dark:white-gray-500 dark:placeholder-white-400 dark:text-grey-900"
                                     placeholder="John Doe"
                                 />
                                 {errors.Name && <p className="text-red-500 text-xs mt-1">{errors.Name.message}</p>}
@@ -33,7 +33,7 @@ const SignupPage = () => {
                                     {...register('UserName')}
                                     name="UserName"
                                     id="UserName"
-                                    className="bg-gray-50 border border-gray-200 text-gray-200 text-sm rounded-lg focus:ring-gray-200 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-200 dark:white-gray-500 dark:placeholder-white-400 dark:text-grey-900"
+                                    className="bg-gray-50 border border-gray-200 text-slate-800 text-sm rounded-lg focus:ring-gray-200 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-200 dark:white-gray-500 dark:placeholder-white-400 dark:text-grey-900"
                                     placeholder="johndoe"
                                 />
                                 {errors.UserName && <p className="text-red-500 text-xs mt-1">{errors.UserName.message}</p>}
@@ -47,7 +47,7 @@ const SignupPage = () => {
                                 {...register('Id')}
                                 name="Id"
                                 id="Id"
-                                className="bg-gray-50 border border-gray-200 text-gray-200 text-sm rounded-lg focus:ring-gray-200 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-200 dark:white-gray-500 dark:placeholder-white-400 dark:text-grey-900"
+                                className="bg-gray-50 border border-gray-200 text-slate-800 text-sm rounded-lg focus:ring-gray-200 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-200 dark:white-gray-500 dark:placeholder-white-400 dark:text-grey-900"
                                 placeholder="1234567890"
                             />
                             {errors.Id && <p className="text-red-500 text-xs mt-1">{errors.Id.message}</p>}
@@ -60,7 +60,7 @@ const SignupPage = () => {
                                 {...register('Email')}
                                 name="Email"
                                 id="Email"
-                                className="bg-gray-50 border border-gray-200 text-gray-200 text-sm rounded-lg focus:ring-gray-200 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-200 dark:white-gray-500 dark:placeholder-white-400 dark:text-grey-900"
+                                className="bg-gray-50 border border-gray-200 text-slate-800 text-sm rounded-lg focus:ring-gray-200 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-200 dark:white-gray-500 dark:placeholder-white-400 dark:text-grey-900"
                                 placeholder="name@gmail.com"
                             />
                             {errors.Email && <p className="text-red-500 text-xs mt-1">{errors.Email.message}</p>}
@@ -73,7 +73,7 @@ const SignupPage = () => {
                                 {...register('CellPhone')}
                                 name="CellPhone"
                                 id="CellPhone"
-                                className="bg-gray-50 border border-gray-200 text-gray-200 text-sm rounded-lg focus:ring-gray-200 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-200 dark:white-gray-500 dark:placeholder-white-400 dark:text-grey-900"
+                                className="bg-gray-50 border border-gray-200 text-slate-800 text-sm rounded-lg focus:ring-gray-200 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-200 dark:white-gray-500 dark:placeholder-white-400 dark:text-grey-900"
                                 placeholder="1234567890"
                             />
                             {errors.CellPhone && <p className="text-red-500 text-xs mt-1">{errors.CellPhone.message}</p>}
@@ -86,7 +86,7 @@ const SignupPage = () => {
                                 {...register('Password')}
                                 name="Password"
                                 id="Password"
-                                className="bg-gray-50 border border-gray-200 text-gray-200 text-sm rounded-lg focus:ring-gray-200 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-200 dark:white-gray-500 dark:placeholder-white-400 dark:text-grey-900"
+                                className="bg-gray-50 border border-gray-200 text-slate-800 text-sm rounded-lg focus:ring-gray-200 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-200 dark:white-gray-500 dark:placeholder-white-400 dark:text-grey-900"
                             />
                             {errors.Password && <p className="text-red-500 text-xs mt-1">{errors.Password.message}</p>}
                         </div>

@@ -7,7 +7,7 @@ const LoginPage = () => {
 
     return (
         <div className="flex min-h-screen items-center justify-center bg-gray-200">
-            <div className="w-full max-w-sm p-4 bg-white border border-teal-600 rounded-lg shadow sm:p-6 md:p-8 bg-teal-900 teal-900">
+            <div className="w-full max-w-sm p-4 bg-white border border-teal-600 rounded-lg shadow sm:p-6 md:p-8 dark:bg-teal-900 teal-900">
                 <form onSubmit={onSubmit} className="space-y-6">
                     <h5 className="text-xl font-medium text-white dark:text-white text-center">Sign in to your account</h5>
                     <div>
@@ -18,7 +18,7 @@ const LoginPage = () => {
                             {...register('UserName')}
                             name="UserName"
                             id="UserName"
-                            className="bg-gray-50 border border-gray-200 text-gray-200 text-sm rounded-lg focus:ring-gray-200 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-200 dark:white-gray-500 dark:placeholder-white-400 dark:text-grey-900"
+                            className="bg-gray-50 border border-gray-200 text-slate-800 text-sm rounded-lg focus:ring-gray-200 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-200 dark:white-gray-500 dark:placeholder-white-400 dark:text-grey-900"
                         />
                         {errors.UserName && (
                             <span className="text-red-500 text-xs mt-1">{errors.UserName.message}</span>
@@ -32,7 +32,7 @@ const LoginPage = () => {
                             {...register('password')}
                             name="password"
                             id="password"
-                            className="bg-gray-50 border border-gray-200 text-gray-200 text-sm rounded-lg focus:ring-gray-200 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-200 dark:white-gray-500 dark:placeholder-white-400 dark:text-grey-900"
+                            className="bg-gray-50 border border-gray-200 text-slate-800  text-sm rounded-lg focus:ring-gray-200 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-200 dark:white-gray-500 dark:placeholder-white-400 dark:text-grey-900"
                         />
                         {errors.password && (
                             <span className="text-red-500 text-xs mt-1">{errors.password.message}</span>
