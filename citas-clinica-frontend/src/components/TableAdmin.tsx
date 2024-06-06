@@ -11,8 +11,8 @@ const TableAdmin = () => {
     <>
       {loading ? (
         <div className="relative overflow-x-auto shadow-md my-5">
-          <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-            <thead className="text-xs text-gray-700 uppercase bg-[#211a6d] dark:bg-[#211a6d] dark:text-gray-400">
+          <table className="w-full text-sm text-left rtl:text-right text-gray-600 dark:text-gray-200">
+            <thead className="text-xs text-gray-900 uppercase bg-[#374151] dark:bg-[#115e59] dark:text-gray-200">
               <tr>
                 <th scope="col" className="px-6 py-3">
                   Id

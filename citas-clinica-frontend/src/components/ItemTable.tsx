@@ -26,10 +26,10 @@ const ItemTable = ({ appointment }: { appointment: Appointment }) => {
     }
 
     return (
-        <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 rounded m-4">
+        <tr className="bg-white border-b dark:bg-gray-500 dark:border-gray-200 rounded m-4">
             <th
                 scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                className="px-6 py-4 font-medium text-white-200 whitespace-nowrap dark:text-white"
             >
                 {appointment.id}
             </th>
@@ -45,7 +45,7 @@ const ItemTable = ({ appointment }: { appointment: Appointment }) => {
             <td className="px-6 py-4">
                 <button
                     onClick={handleDelete}
-                    className="font-medium text-red-500 dark:text-red-500 hover:underline"
+                    className="font-medium text-red-500 dark:text-red-6bg-gray-50 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5 dark:bg-red-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray-100 appearance-none00 hover:underline"
                 >
                     Delete
                 </button>

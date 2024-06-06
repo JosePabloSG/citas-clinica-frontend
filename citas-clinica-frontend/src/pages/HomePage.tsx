@@ -6,7 +6,7 @@ const HomePage = () => {
 
   return (
     <>
-      <main className="min-h-screen bg-gray-500 ">
+      <main className="min-h-screen bg-gray-200 ">
         <Navbar />
           <AppointmentForm />
           <Appointments />
