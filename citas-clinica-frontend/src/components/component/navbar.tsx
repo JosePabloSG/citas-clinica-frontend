@@ -10,7 +10,9 @@ export function Navbar() {
   return (
     <header className="flex h-16 items-center justify-between bg-[#134e4a] px-4 md:px-6">
       <Link className="text-lg font-bold text-white" to={"/"}>
-        Greys Clinic
+      <img src="LogoImages\Logo.jpeg" alt="Greys Clinic Logo" className="h-12 mr-3" />
+        <span className="text-2x1">Grey's Clinic</span>
+        
       </Link>
       <div className="flex items-center my-5">
         {tokenData.Role === 'ADMIN' && (
