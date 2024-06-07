@@ -9,7 +9,7 @@ const LoginPage = () => {
         <>
             <div className="min-h-screen flex flex-col items-center justify-center bg-gray-200 ">
             <div className="flex justify-center mb-5">
-                <img src="LogoImages\LogoLogin.jpeg" alt="Greys Clinic Logo" className="h-32 w-32 rounded-full border-4 border-white" />
+                <img width={192} height={192} src="\Logo.png" alt="Greys Clinic Logo" className="rounded-full border-4 border-white" />
             </div>
                 <div className="w-full max-w-sm p-4 bg-white border border-teal-600 rounded-lg shadow sm:p-6 md:p-8 dark:bg-teal-900 teal-900">
                     <form onSubmit={onSubmit} className="space-y-2">
