@@ -6,11 +6,12 @@ const HomePage = () => {
 
   return (
     <>
-      <main className="min-h-screen bg-gray-200 ">
-        <Navbar />
-          <AppointmentForm />
-          <Appointments />
-      </main>
+      <Navbar />
+      <div className="relative">
+        <img className="absolute inset-0 -z-30 opacity-35 h-screen w-screen object-cover blur " src="/BackgroundMain.jpg" />
+        <AppointmentForm />
+        <Appointments />
+      </div>
     </>
   )
 }
