@@ -8,7 +8,7 @@ const HomePage = () => {
     <>
       <Navbar />
       <div className="relative">
-        <img className="absolute inset-0 -z-30 opacity-35 h-screen w-screen object-cover blur " src="/BackgroundMain.webp" />
+        <img className="absolute inset-0 -z-30 opacity-25 h-screen w-screen object-cover " src="/BackgroundMain.webp" />
         <AppointmentForm />
         <Appointments />
       </div>

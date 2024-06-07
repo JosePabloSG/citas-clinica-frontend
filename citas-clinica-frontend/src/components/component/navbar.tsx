@@ -47,7 +47,7 @@ export function Navbar() {
                 <h4 className="block mb-2 text-sm font-medium text-gray-900">
                   Phone
                 </h4>
-                <div className="text-sm font-medium  text-stone-700">{tokenData.Phone}</div>
+                <div className="text-sm font-medium  text-stone-700">+506 {tokenData.Phone}</div>
               </div>
             </div>
             <DropdownMenuSeparator />

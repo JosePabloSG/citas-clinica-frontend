@@ -16,7 +16,7 @@ const SingleAppointment = ({ appointment }: { appointment: Appointment }) => {
     return (
         <div onDoubleClick={() => setIsEditing(true)}>
             {isEditing ? (
-                <div className="w-full max-w-sm p-4 bg-gray-400 borderborder-white rounded-lg shadow sm:p-6 md:p-8">
+                <div className="w-full max-w-sm p-4 bg-slate-300 borderborder-white rounded-lg shadow sm:p-6 md:p-8">
                      <div className=" flex justify-end">
                         <button
                             type="button"
@@ -128,36 +128,36 @@ const SingleAppointment = ({ appointment }: { appointment: Appointment }) => {
                     </form>
                 </div>
             ) : (
-                <div className="w-full max-w-sm p-4 bg-gray-400 borderborder-white rounded-lg shadow sm:p-6 md:p-8 hover:scale-105 transition-transform duration-300 ease-in-out cursor-pointer">
+                <div className="w-full max-w-sm p-4 bg-slate-300 borderborder-white rounded-lg shadow sm:p-6 md:p-8 hover:scale-105 transition-transform duration-300 ease-in-out cursor-pointer">
                     <div className="col-span-2 sm:col-span-1">
-                        <h4 className="block mb-2 text-sm font-medium text-gray-900">
+                        <h4 className="flex mb-2 text-sm font-medium justify-center text-gray-900">
                             Status
                         </h4>
-                        <p className=" text-gray-700">{appointment.status ? 'Pending' : 'Cancelled'}</p>
+                        <p className="flex justify-center text-gray-700">{appointment.status ? 'Pending' : 'Cancelled'}</p>
                     </div>
                     <div className="col-span-2 sm:col-span-1">
-                        <h4 className="block mb-2 text-sm font-medium text-gray-900">
+                        <h4 className="flex justify-center mb-2 text-sm font-medium text-gray-900">
                             Appointment Type
                         </h4>
-                        <p className=" text-gray-700">{appointment.appointmentType.name}</p>
+                        <p className=" flex justify-center text-gray-700">{appointment.appointmentType.name}</p>
                     </div>
                     <div className="col-span-2 sm:col-span-1">
-                        <h4 className="block mb-2 text-sm font-medium text-gray-900">
+                        <h4 className="flex justify-center mb-2 text-sm font-medium text-gray-900">
                             Clinic Branch
                         </h4>
-                        <p className=" text-gray-700">{appointment.clinicBranch.name}</p>
+                        <p className="flex justify-center text-gray-700">{appointment.clinicBranch.name}</p>
                     </div>
                     <div className="col-span-2 sm:col-span-1">
-                        <h4 className="block mb-2 text-sm font-medium text-gray-900">
+                        <h4 className="flex justify-center mb-2 text-sm font-medium text-gray-900">
                             Appointment Date
                         </h4>
-                        <p className=" text-gray-700">  {new Date(appointment.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}    </p>
+                        <p className="flex justify-center text-gray-700">  {new Date(appointment.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}    </p>
                     </div>
                     <div className="col-span-2 sm:col-span-1">
-                        <h4 className="block mb-2 text-sm font-medium text-gray-900">
+                        <h4 className="flex justify-centermb-2 text-sm font-medium text-gray-900">
                             Appointment Time
                         </h4>
-                        <p className=" text-gray-700">{appointment.time}</p>
+                        <p className="flex justify-center text-gray-700">{appointment.time}</p>
                     </div>
                 </div>
             )}
