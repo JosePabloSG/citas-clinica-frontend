@@ -8,7 +8,7 @@ const LoginPage = () => {
     return (
         <>
             <div className="relative">
-                <img className="absolute inset-0 z-0 opacity-35 h-screen w-screen object-cover" src="/backgroundImg.jpg" />
+                <img className="absolute inset-0 z-0 opacity-35 h-screen w-screen object-cover" src="/backgroundImg.webp" />
                 <div className="relative z-10 min-h-screen flex flex-col items-center justify-center">
                         <div className="flex justify-center mb-5">
                             <img width={192} height={192} src="\Logo.png" alt="Greys Clinic Logo" className="rounded-full border-4 border-white" />
