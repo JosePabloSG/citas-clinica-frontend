@@ -1,7 +1,7 @@
 import useGetAllAppointments from "@/hooks/Appointments/useGetAllAppointments"
 import ItemTable from "./ItemTable"
 import { Appointment } from "@/types/Appointments"
-import { Loader } from "lucide-react"
+import Loader from "./Loader"
 
 const TableAdmin = () => {
   
