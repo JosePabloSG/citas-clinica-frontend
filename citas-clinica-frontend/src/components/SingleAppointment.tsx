@@ -6,30 +6,12 @@ import { useState } from "react"
 import DeleteAppointmentButton from "./DeleteAppointmentButton"
 import usePutAppointment from "@/hooks/Appointments/usePutAppointment"
 
-interface Data {
-    time: string;
-}
-
 
 
 const SingleAppointment = ({ appointment }: { appointment: Appointment }) => {
 
     const [isEditing, setIsEditing] = useState(false)
     const { OnSubmit, register } = usePutAppointment(setIsEditing, appointment)
-
-    function convertTo12HourFormat(time: Data["time"]) {
-        let hour = parseInt(time.substring(0, 2))
-        const minute = time.substring(3, 5)
-        const period = hour < 12 ? 'AM' : 'PM'
-
-        if (hour === 0) {
-            hour = 12
-        } else if (hour > 12) {
-            hour -= 12
-        }
-
-        return `${hour}:${minute} ${period}`
-    }
 
     return (
         <div className=" animate-open-close" onDoubleClick={() => setIsEditing(true)}>
@@ -176,7 +158,7 @@ const SingleAppointment = ({ appointment }: { appointment: Appointment }) => {
                                 Appointment Time
                             </h4>
                             <p className="flex justify-center text-gray-700">
-                                {convertTo12HourFormat(appointment.time)}
+                                {appointment.time}
                             </p>
                         </div>
                     </div>

@@ -28,8 +28,7 @@ const usePutAppointment = ( setIsEditing: React.Dispatch<React.SetStateAction<bo
     const {newAppointmentCreated,setNewAppointmentCreated} = useContext(AppointmentsContext)
 
       function formatedData(data: Data, tokenData: TokenData, appointmentId: number) {
-
-        data.time += ":00"
+        data.time = data.time + ':00'
         const productData = JSON.parse(JSON.stringify(data))
         productData.userId = parseInt(tokenData.Id)
         productData.appointmentTypeId = parseInt(data.appointmentTypeId)
@@ -42,7 +41,7 @@ const usePutAppointment = ( setIsEditing: React.Dispatch<React.SetStateAction<bo
     const OnSubmit = handleSubmit(async (data) => {
 
         const AppointmentData: Appointment = formatedData(data as Data, tokenData, appointment.id)
-
+        
         try {
             await updateAppointment(appointment.id, AppointmentData, localStorage.getItem('token') as string)
             toast.success('Appointment updated successfully')
