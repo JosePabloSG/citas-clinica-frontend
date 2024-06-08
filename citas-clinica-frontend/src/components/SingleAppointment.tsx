@@ -158,7 +158,7 @@ const SingleAppointment = ({ appointment }: { appointment: Appointment }) => {
                                 Appointment Time
                             </h4>
                             <p className="flex justify-center text-gray-700">
-                                {appointment.time}
+                            {appointment.time.split(':').slice(0, 2).join(':')}
                             </p>
                         </div>
                     </div>
