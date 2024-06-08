@@ -24,12 +24,12 @@ const DeleteAppointmentButton = ({ id, setIsEditing }: { id: number, setIsEditin
             <button onClick={() => setShowModal(true)} type="button" className="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">Delete</button>
             {showModal ? (
                 <>
-                    <div className="fixed inset-0 flex items-center justify-center z-50">
+                    <div className={`fixed inset-0 flex items-center justify-center z-50 ${showModal ? 'scale-100' : 'scale-0'} `}>
                         <div className="relative w-auto my-6 mx-auto max-w-3xl">
-                            <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                            <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-slate-300 outline-none focus:outline-none">
                                 <div className="relative p-6 flex-auto">
                                     <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
-                                        Are you sure you want to delete appoinment ?
+                                        Are you sure you want to delete the appointment?
                                     </p>
                                 </div>
                                 <div className="flex items-center p-6 border-t border-solid border-blueGray-200 rounded-b justify-center">

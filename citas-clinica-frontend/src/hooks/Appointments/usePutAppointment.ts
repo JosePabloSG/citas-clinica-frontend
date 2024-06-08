@@ -29,7 +29,7 @@ const usePutAppointment = ( setIsEditing: React.Dispatch<React.SetStateAction<bo
 
       function formatedData(data: Data, tokenData: TokenData, appointmentId: number) {
 
-        data.time
+        data.time += ":00"
         const productData = JSON.parse(JSON.stringify(data))
         productData.userId = parseInt(tokenData.Id)
         productData.appointmentTypeId = parseInt(data.appointmentTypeId)
@@ -42,8 +42,6 @@ const usePutAppointment = ( setIsEditing: React.Dispatch<React.SetStateAction<bo
     const OnSubmit = handleSubmit(async (data) => {
 
         const AppointmentData: Appointment = formatedData(data as Data, tokenData, appointment.id)
-
-        console.log(AppointmentData)
 
         try {
             await updateAppointment(appointment.id, AppointmentData, localStorage.getItem('token') as string)

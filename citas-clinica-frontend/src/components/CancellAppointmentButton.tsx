@@ -36,12 +36,12 @@ const CancellAppointmentButton = ({ id, setIsEditing }: { id: number, setIsEditi
             </button>
             {showModal ? (
                 <>
-                    <div className="fixed inset-0 flex items-center justify-center z-50">
+                    <div className={`fixed inset-0 flex items-center justify-center z-50 ${showModal ? 'scale-100' : 'scale-0'} `}>
                         <div className="relative w-auto my-6 mx-auto max-w-3xl">
-                            <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                            <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-slate-300 outline-none focus:outline-none">
                                 <div className="relative p-6 flex-auto">
                                     <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
-                                        Are you sure you want to cancel appoinment ?
+                                        Are you sure you want to cancel the appointment?
                                     </p>
                                 </div>
                                 <div className="flex items-center p-6 border-t border-solid border-blueGray-200 rounded-b justify-center">
