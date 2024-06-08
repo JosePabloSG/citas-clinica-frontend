@@ -28,7 +28,6 @@ const usePutAppointment = ( setIsEditing: React.Dispatch<React.SetStateAction<bo
     const {newAppointmentCreated,setNewAppointmentCreated} = useContext(AppointmentsContext)
 
       function formatedData(data: Data, tokenData: TokenData, appointmentId: number) {
-        data.time = data.time + ':00'
         const productData = JSON.parse(JSON.stringify(data))
         productData.userId = parseInt(tokenData.Id)
         productData.appointmentTypeId = parseInt(data.appointmentTypeId)
