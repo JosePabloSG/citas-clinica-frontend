@@ -10,10 +10,10 @@ const LoginPage = () => {
             <div className="relative">
                 <img className="absolute inset-0 z-0 opacity-35 h-screen w-screen object-cover" src="/backgroundImg.webp" />
                 <div className="relative z-10 min-h-screen flex flex-col items-center justify-center">
-                        <div className="flex justify-center mb-5">
+                        <div className="flex justify-center mb-5 animate-open-close">
                             <img width={192} height={192} src="\Logo.png" alt="Greys Clinic Logo" className="rounded-full border-4 border-white" />
                         </div>
-                        <div className="w-full max-w-sm p-4 bg-white border border-teal-600 rounded-lg shadow sm:p-6 md:p-8 dark:bg-teal-900 teal-900">
+                        <div className=" animate-open-close w-full max-w-sm p-4 bg-white border border-teal-600 rounded-lg shadow sm:p-6 md:p-8 dark:bg-teal-900 teal-900">
                             <form onSubmit={onSubmit} className="space-y-2">
                                 <h5 className="text-xl font-medium text-white dark:text-white text-center">Sign in to your account</h5>
                                 <div>

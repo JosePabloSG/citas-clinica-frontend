@@ -10,7 +10,7 @@ const SignupPage = () => {
             <div className="relative">
                 <img className="absolute inset-0 z-0 opacity-35 h-screen w-screen object-cover" src="/backgroundImg.webp" />
                 <div className="relative z-10 min-h-screen flex flex-col items-center justify-center">
-                    <div className="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-teal-900 dark:border-gray-700">
+                    <div className=" animate-open-close w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-teal-900 dark:border-gray-700">
                         <form onSubmit={onSubmit} className="space-y-6">
                             <h5 className="text-xl font-medium text-gray-900 dark:text-white text-center">Create an account</h5>
                             <div className="flex gap-4  ">
