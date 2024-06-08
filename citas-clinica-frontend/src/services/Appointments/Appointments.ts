@@ -44,7 +44,7 @@ export async function createAppointment(appointmentData: Appointment, tokenData:
 export async function getAllAppointments(token: string | null) {
   let response
   try {
-    response = await fetch(`${import.meta.env.VITE_API_URL}/api/Appointment`,
+    response = await fetch(`${import.meta.env.VITE_API_URL}/api/Appointment/today`,
       {
         method: "GET",
         headers: {
